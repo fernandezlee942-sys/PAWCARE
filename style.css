@@ -1,0 +1,7 @@
+html, body, * {
+  cursor: url('img/Bear.png'), auto;
+}
+
+a, button, input, select, textarea, [role="button"] {
+  cursor: url(img/BearInteraction.png), auto;
+}
