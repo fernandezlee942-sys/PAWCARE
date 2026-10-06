@@ -1,0 +1,42 @@
+git reset --hard origin/namabranch kalian
+kalo rebase kalian tb2 muncul masalah yg harus maksa force push pakai ini di cli (hubungkan github ke vscode)
+
+
+iirc you need to download git for it (not github but git)
+
+kalo ad merge conflict / pas rebase disuruh buat force push selalu kabari yang lain
+
+important git command
+
+git status - Melihat status file (perubahan, staging area, atau commit).
+
+git add . - Menambahkan seluruh file yang diubah ke staging area.
+
+git commit -m "pesan" - Menyimpan perubahan dari staging area ke riwayat Git dengan pesan penjelasan.
+
+git branch - Menampilkan daftar branch lokal.
+
+git switch <nama-branch> atau git checkout <nama-branch> - Pindah ke branch tertentu.
+
+git switch -c <nama-branch> atau git checkout -b <nama-branch> - Membuat branch baru sekaligus langsung pindah ke dalamnya.
+
+git merge <nama-branch> - Menggabungkan perubahan dari branch lain ke branch yang sedang aktif.
+
+git rebase <nama-branch> - Memindahkan dasar commit branch kamu ke atas commit terbaru branch lain agar riwayat commit tetap lurus.
+
+git fetch origin - Menarik data/informasi commit terbaru dari remote tanpa menggabungkan kodenya secara langsung.
+
+git pull origin <nama-branch> - Menarik sekaligus menggabungkan (fetch + merge) kode terbaru dari remote ke branch lokal.
+
+git push origin <nama-branch> - Mengirim commit lokal ke repository remote di GitHub.
+
+git log --oneline - Melihat riwayat commit secara ringkas dalam satu baris per commit.
+kalo ketekan git log dan mau keluar tekan q
+
+git rebase --abort - Membatalkan proses rebase yang sedang berjalan atau mengalami konflik, dan mengembalikan kondisi branch ke keadaan semula sebelum rebase.
+
+git reset --hard origin/main - Memaksa branch kamu saat ini untuk menyamakan diri persis dengan origin/main (menghapus seluruh commit lokal dan perubahan yang belum di-commit agar identik dengan main di GitHub).
+origin main --> file main di web githubnya
+
+git reset --hard origin/fernandez - Memaksa branch kamu saat ini untuk menyamakan diri persis dengan origin/fernandez
+jadi semisal kalian rebase tb2 dipaksa buat rebase pakai command ini di branchnya dan pake gpt buat selesaikan conflist rebasenya
