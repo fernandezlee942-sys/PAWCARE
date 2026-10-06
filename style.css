@@ -1,3 +1,10 @@
+:root{
+  --color-soft-pink: rgb(245, 148, 229);
+  --color-soft-pink: rgb(245, 148, 229);
+
+}
+
+
 html, body, * {
   cursor: url('img/Bear.png'), auto;
   margin: 0;
@@ -12,12 +19,28 @@ a, button, input, select, textarea, [role="button"] {
   display: flex;
   padding: 20px;
 
-  height: 400px;
+  height: 100px;
   width: 100%;
   
   border-bottom: solid black 5px;
-  
   z-index: 1000;
   background-image: url(img/DogSlipper.jpg);
   background-size: cover;
+  background-position: center;
+}
+
+#BannerBottom {
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  padding: 20px;
+
+  height: 100px;
+  width: 100%;
+  
+  border-bottom: solid black 5px;
+  z-index: 1000;
+  background-image: url(img/DogSlipper.jpg);
+  background-size: cover;
+  background-position: center;
 }
