@@ -1,7 +1,23 @@
 html, body, * {
   cursor: url('img/Bear.png'), auto;
+  margin: 0;
 }
 
 a, button, input, select, textarea, [role="button"] {
   cursor: url(img/BearInteraction.png), auto;
+}
+
+#Banner {
+  position: fixed;
+  display: flex;
+  padding: 20px;
+
+  height: 400px;
+  width: 100%;
+  
+  border-bottom: solid black 5px;
+  
+  z-index: 1000;
+  background-image: url(img/DogSlipper.jpg);
+  background-size: cover;
 }
