@@ -6,12 +6,12 @@
 
 
 html, body, * {
-  cursor: url('img/Bear.png'), auto;
+  cursor: url('img/BearRevised.png'), auto;
   margin: 0;
 }
 
 a, button, input, select, textarea, [role="button"] {
-  cursor: url(img/BearInteraction.png), auto;
+  cursor: url(img/BearRevisedInteraction.png), auto;
 }
 
 #Banner {
