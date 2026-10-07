@@ -1,46 +1,155 @@
-:root{
-  --color-soft-pink: rgb(245, 148, 229);
-  --color-soft-pink: rgb(245, 148, 229);
-
+/* flex: [flex-grow] [flex-shrink] [flex-basis]; */
+*{
+  margin: 0;
+  user-select: none;
 }
 
 
+/* #region Variables */
+:root{
+  --banner-height: 8vh;
+  --banner-paddingVertical:20px;
+  --banner-padding:var(--banner-paddingVertical) 0px;
+
+  --color-banner-border: black;
+  --outline-banner-border: 5px;
+
+
+  --color-banner-top-color : rgb(253, 156, 0);
+  --color-banner-PawcareText : white;
+
+  --logo1-height: 400px;
+  --logo1-width :200px;
+  --akun-height: 100px;
+  --akun-width: 150px;
+  --banner-top-h1-fontsize: 40px;
+  --banner-top-h1-fonttype: Arial, Helvetica, sans-serif;
+
+
+  --layanan-height: 100px;
+  --layanan-width: 150px;
+  --home-height: 100px;
+  --home-width: 130px;
+
+
+  --color-banner-bottom-color: rgb(253, 156, 0);
+  --color-banner-bottom-border-top : black;
+
+
+  --color-ContentWrapperBG: rgb(255, 255, 255);
+
+
+
+
+}
+/* #endregion */
+
+
+/* #region cursor */
 html, body, * {
-  cursor: url('img/Bear.png'), auto;
+  cursor: url('img/BearCursor.png'), auto;
   margin: 0;
 }
 
-a, button, input, select, textarea, [role="button"] {
-  cursor: url(img/BearInteraction.png), auto;
+a, a img, button, input, select, textarea, [role="button"] {
+  cursor: url(img/BearCursorInteraction.png), auto;
 }
+/* #endregion */
 
+/* #region BannerTop */
 #Banner {
   position: fixed;
   display: flex;
-  padding: 20px;
+  padding: var(--banner-padding);
 
-  height: 100px;
+  height: var(--banner-height);
   width: 100%;
-  
-  border-bottom: solid black 5px;
+
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 4vw; */
+
+  border-bottom: solid var(--color-banner-border) var(--outline-banner-border);
   z-index: 1000;
-  background-image: url(img/DogSlipper.jpg);
-  background-size: cover;
-  background-position: center;
+
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  background-color: var(--color-banner-top-color);
+  /* background-image: url(img/DogSlipper.jpg); */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+#Banner img#Logo1{
+  width: var(--logo1-width);
+  height: var(--logo1-height);
+}
+#Banner img#Akun{
+  width: var(--akun-width);
+  height: var(--akun-height);
+}
+#Banner h1{
+  color: var(--color-banner-PawcareText);
+  font-weight: bold;
+  font-size: var(--banner-top-h1-fontsize);
+  font-family: var(--banner-top-h1-fonttype);
+}
+/* #endregion */
+
+
+/* dont mind the math its just to make it easy to port into mobile, also why use padding its bcos if i try to put margin in the content wrapper the banner will somehow move */
+/* as for why i dont just use margin top = 16vh it's cos of how this goddamm html worked, 0-> it affected the banner (position:fixed) for some reason so just bear with the padding */
+.ContentWrapper{
+  /* if you dont understand this shit just consider it as a kind of (we have a banner so we put all the web content inside this and we put padding so the content dont get overlaid by the banner) */
+  padding-top: calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2));
+  padding-bottom: calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2));
+  
+  min-height: calc(100vh - calc((var(--banner-height)) * 2) - calc((var(--banner-paddingVertical)) * 2));
+
+  background-color: var(--color-ContentWrapperBG);
+
 }
 
+
+
+/* #region BannerBottom */
 #BannerBottom {
   bottom: 0;
   position: fixed;
   display: flex;
-  padding: 20px;
+  padding: var(--banner-padding);
 
-  height: 100px;
+  height: var(--banner-height);
   width: 100%;
   
-  border-bottom: solid black 5px;
+  align-items: center;
+  justify-content: space-between;
+  
+  border-top: solid var(--color-banner-border) var(--outline-banner-border);
   z-index: 1000;
-  background-image: url(img/DogSlipper.jpg);
-  background-size: cover;
-  background-position: center;
+  
+  background-color: var(--color-banner-top-color);
+  flex-grow: 0;
+  flex-shrink: 0;
+  /* background-image: url(img/DogSlipper.jpg); */
+  /* background-size: cover; */
+  /* background-position: center; */
 }
+#BannerBottom img#Home{
+  width: var(--home-width);
+  height: var(--home-height);
+}
+#BannerBottom img#Layanan{
+  width: var(--layanan-width);
+  height: var(--layanan-height);
+}
+#BannerBottom{
+  color: var(--color-banner-PawcareText);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* #endregion */
+
+
+
