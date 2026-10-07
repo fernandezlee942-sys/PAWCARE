@@ -22,23 +22,27 @@
   --logo1-width :200px;
   --akun-height: 100px;
   --akun-width: 150px;
+  --lokasi-height: 100px;
+  --lokasi-width: 100px;
+
   --banner-top-h1-fontsize: 40px;
   --banner-top-h1-fonttype: Arial, Helvetica, sans-serif;
 
 
-  --layanan-height: 100px;
-  --layanan-width: 150px;
+  --layanan-height: 80px;
+  --layanan-width: 100px;
   --home-height: 100px;
-  --home-width: 130px;
-
+  --home-width: 100px;
+  --contact-height: 100px;
+  --contact-width: 100px;
 
   --color-banner-bottom-color: rgb(253, 156, 0);
   --color-banner-bottom-border-top : black;
 
 
   --color-ContentWrapperBG: rgb(255, 255, 255);
-
-
+  --offset-BannerTopText: 5px;
+  --offset-BannerBottomText: 5px;
 
 
 }
@@ -88,6 +92,10 @@ a, a img, button, input, select, textarea, [role="button"] {
   width: var(--akun-width);
   height: var(--akun-height);
 }
+#Banner img#Lokasi{
+  width: var(--lokasi-width);
+  height: var(--lokasi-height);
+}
 #Banner h1{
   color: var(--color-banner-PawcareText);
   font-weight: bold;
@@ -101,10 +109,10 @@ a, a img, button, input, select, textarea, [role="button"] {
 /* as for why i dont just use margin top = 16vh it's cos of how this goddamm html worked, 0-> it affected the banner (position:fixed) for some reason so just bear with the padding */
 .ContentWrapper{
   /* if you dont understand this shit just consider it as a kind of (we have a banner so we put all the web content inside this and we put padding so the content dont get overlaid by the banner) */
-  padding-top: calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2));
-  padding-bottom: calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2));
+  padding-top: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerTopText));
+  padding-bottom: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerBottomText));
   
-  min-height: calc(100vh - calc((var(--banner-height)) * 2) - calc((var(--banner-paddingVertical)) * 2));
+  min-height: 100vh;
 
   background-color: var(--color-ContentWrapperBG);
 
@@ -135,6 +143,11 @@ a, a img, button, input, select, textarea, [role="button"] {
   /* background-size: cover; */
   /* background-position: center; */
 }
+#BannerBottom{
+  color: var(--color-banner-PawcareText);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
 #BannerBottom img#Home{
   width: var(--home-width);
   height: var(--home-height);
@@ -143,12 +156,10 @@ a, a img, button, input, select, textarea, [role="button"] {
   width: var(--layanan-width);
   height: var(--layanan-height);
 }
-#BannerBottom{
-  color: var(--color-banner-PawcareText);
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+#BannerBottom img#Contact{
+  width: var(--contact-width);
+  height: var(--contact-height);
 }
-
 /* #endregion */
 
 
