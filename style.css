@@ -1,21 +1,24 @@
 /* flex: [flex-grow] [flex-shrink] [flex-basis]; */
+
+/* #region universalsetting */
 *{
   margin: 0;
   user-select: none;
 }
-
+/* #endregion */
 
 /* #region Variables */
 :root{
+  /* #region GeneralBannerVar */
   --banner-height: 8vh;
   --banner-paddingVertical:20px;
   --banner-padding:var(--banner-paddingVertical) 0px;
-
-  --color-banner-border: black;
+  --color-banner-border-top: black;
   --outline-banner-border: 5px;
-
-
-  --color-banner-top-color : rgb(253, 156, 0);
+  /* #endregion */
+  
+  /* #region TopBannerVar */
+  --color-banner-top : rgb(253, 156, 0);
   --color-banner-PawcareText : white;
 
   --logo1-height: 400px;
@@ -27,8 +30,9 @@
 
   --banner-top-h1-fontsize: 40px;
   --banner-top-h1-fonttype: Arial, Helvetica, sans-serif;
+  /* #endregion */
 
-
+  /* #region BottomBannerVar */
   --layanan-height: 80px;
   --layanan-width: 100px;
   --home-height: 100px;
@@ -36,18 +40,36 @@
   --contact-height: 100px;
   --contact-width: 100px;
 
-  --color-banner-bottom-color: rgb(253, 156, 0);
-  --color-banner-bottom-border-top : black;
-
-
+  --color-banner-bottom: rgb(253, 156, 0);
+  --color-banner-border-bottom : black;
+  /* #endregion */
+  
+  
+  /* #region ContentWrapper */
+  --ContentWrapperElementsTopBottomMargin : 30px;
   --color-ContentWrapperBG: rgb(255, 255, 255);
-  --offset-BannerTopText: 5px;
-  --offset-BannerBottomText: 5px;
+  
+  --offset-BannerTopText: 20px;
+  --offset-BannerBottomText: 20px;
+
+  
+  --Contact-TextColor:white;
+  --Contact-Padding : 20px;
+  --Contact-ElementMarginTopBottom: 10px;
+  
+  --ContentWrapper-PaddingLeftRight: 30px;
+  --hr-height:4px;
+  --hr-bgcolor:black;
+  --hr-marginTopBottom: 10px;
+  /* #endregion */
+
+
+
+
 
 
 }
 /* #endregion */
-
 
 /* #region cursor */
 html, body, * {
@@ -59,6 +81,7 @@ a, a img, button, input, select, textarea, [role="button"] {
   cursor: url(img/BearCursorInteraction.png), auto;
 }
 /* #endregion */
+
 
 /* #region BannerTop */
 #Banner {
@@ -73,26 +96,26 @@ a, a img, button, input, select, textarea, [role="button"] {
   justify-content: space-between;
   /* gap: 4vw; */
 
-  border-bottom: solid var(--color-banner-border) var(--outline-banner-border);
+  border-bottom: solid var(--color-banner-border-top) var(--outline-banner-border);
   z-index: 1000;
 
   flex-grow: 0;
   flex-shrink: 0;
 
-  background-color: var(--color-banner-top-color);
+  background-color: var(--color-banner-top);
   /* background-image: url(img/DogSlipper.jpg); */
   /* background-size: cover; */
   /* background-position: center; */
 }
-#Banner img#Logo1{
+#Banner img#Logo1Img{
   width: var(--logo1-width);
   height: var(--logo1-height);
 }
-#Banner img#Akun{
+#Banner img#AkunImg{
   width: var(--akun-width);
   height: var(--akun-height);
 }
-#Banner img#Lokasi{
+#Banner img#LokasiImg{
   width: var(--lokasi-width);
   height: var(--lokasi-height);
 }
@@ -103,21 +126,6 @@ a, a img, button, input, select, textarea, [role="button"] {
   font-family: var(--banner-top-h1-fonttype);
 }
 /* #endregion */
-
-
-/* dont mind the math its just to make it easy to port into mobile, also why use padding its bcos if i try to put margin in the content wrapper the banner will somehow move */
-/* as for why i dont just use margin top = 16vh it's cos of how this goddamm html worked, 0-> it affected the banner (position:fixed) for some reason so just bear with the padding */
-.ContentWrapper{
-  /* if you dont understand this shit just consider it as a kind of (we have a banner so we put all the web content inside this and we put padding so the content dont get overlaid by the banner) */
-  padding-top: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerTopText));
-  padding-bottom: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerBottomText));
-  
-  min-height: 100vh;
-
-  background-color: var(--color-ContentWrapperBG);
-
-}
-
 
 
 /* #region BannerBottom */
@@ -133,10 +141,10 @@ a, a img, button, input, select, textarea, [role="button"] {
   align-items: center;
   justify-content: space-between;
   
-  border-top: solid var(--color-banner-border) var(--outline-banner-border);
+  border-top: solid var(--color-banner-border-bottom) var(--outline-banner-border);
   z-index: 1000;
   
-  background-color: var(--color-banner-top-color);
+  background-color: var(--color-banner-bottom);
   flex-grow: 0;
   flex-shrink: 0;
   /* background-image: url(img/DogSlipper.jpg); */
@@ -148,19 +156,79 @@ a, a img, button, input, select, textarea, [role="button"] {
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
 }
-#BannerBottom img#Home{
+#BannerBottom img#HomeImg{
   width: var(--home-width);
   height: var(--home-height);
 }
-#BannerBottom img#Layanan{
+#BannerBottom img#LayananImg{
   width: var(--layanan-width);
   height: var(--layanan-height);
 }
-#BannerBottom img#Contact{
+#BannerBottom img#ContactImg{
   width: var(--contact-width);
   height: var(--contact-height);
 }
 /* #endregion */
 
 
+/* #region ContentWrapper */
+/* dont mind the math its just to make it easy to port into mobile, also why use padding its bcos if i try to put margin in the content wrapper the banner will somehow move */
+/* as for why i dont just use margin top = 16vh it's cos of how this goddamm html worked, 0-> it affected the banner (position:fixed) for some reason so just bear with the padding */
+.ContentWrapper{
+  /* if you dont understand this shit just consider it as a kind of (we have a banner so we put all the web content inside this and we put padding so the content dont get overlaid by the banner) */
+  padding-top: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerTopText));
+  padding-bottom: calc((calc(var(--banner-height) + calc(var(--banner-paddingVertical) * 2))) + var(--offset-BannerBottomText));
+  
+  min-height: 100vh;
 
+  background-color: var(--color-ContentWrapperBG);
+
+  padding-left: var(--ContentWrapper-PaddingLeftRight);
+  padding-right: var(--ContentWrapper-PaddingLeftRight);
+}
+.ContentWrapper *{
+  margin: var(--ContentWrapperElementsTopBottomMargin) 0px;
+}
+
+.ContentWrapper hr{
+  height: var(--hr-height);
+  background-color: var(--hr-bgcolor);
+  margin-top: var(--hr-marginTopBottom);
+  margin-bottom: var(--hr-marginTopBottom);
+}
+.ContentWrapper #Contact hr{
+  background-color: var(--Contact-TextColor);
+}
+
+/* #region Location */
+#Location{
+
+}
+/* #endregion */
+
+
+/* #region Contact */
+#Contact{
+  background-color: grey;
+  color: var(--Contact-TextColor);
+  padding: var(--Contact-Padding);
+}
+#Contact *{
+  margin: var(--Contact-ElementMarginTopBottom) 0px;
+}
+#Contact a{
+  color: var(--Contact-TextColor);
+  /* text-decoration: none; */
+}
+#Contact h1{
+
+}
+/* #endregion */
+
+/* #region FAQ */
+
+/* #endregion */
+
+
+
+/* #endregion */

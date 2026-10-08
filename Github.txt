@@ -42,3 +42,19 @@ git reset --hard origin/fernandez - Memaksa branch kamu saat ini untuk menyamaka
 jadi semisal kalian rebase tb2 dipaksa buat rebase pakai command ini di branchnya dan pake gpt buat selesaikan conflist rebasenya
 
 git reset --hard HEAD (sama aja kek yg origin/ cmn lbh pendek aja)
+
+
+
+git checkout fernandez
+git commit -a -m "abc"
+git push origin fernandez
+
+git checkout main
+git pull origin main
+git merge origin/fernandez
+
+git push origin main
+
+
+fernandez (branch fernandez lokal di tmptku)
+origin/fernandez (branch yg ad di server github)
