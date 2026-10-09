@@ -1,0 +1,129 @@
+:root {
+    color-scheme: light;
+
+    --bg: #FFF7F4;
+    /* latar halaman */
+    --surface: #FFFFFF;
+    /* latar kartu */
+    --ink: #4A2A2E;
+    /* teks utama */
+    --muted: #7D5E61;
+    /* teks pendukung */
+    --line: #F6DCD3;
+    /* garis tepi */
+
+    --brand: #F6B3A0;
+    /* peach logo: tombol, filter aktif */
+    --brand-strong: #BF4E38;
+    /* teks harga dan label kategori */
+    --on-brand: #4A2A2E;
+    /* teks di atas --brand */
+    --pink: #F4A7C5;
+
+    --tint-1: #FDE0D6;
+    --tint-2: #FBD3E3;
+    --tint-3: #FFEFD9;
+    --tint-4: #FCE4EC;
+    --tint-5: #FFE8DF;
+    --tint-6: #F8DDEA;
+
+    --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+    --font-body: 'Nunito', system-ui, sans-serif;
+
+    --radius-card: 22px;
+    --radius-pill: 999px;
+    --border-w: 1.5px;
+    --focus-ring: 3px solid var(--brand-strong);
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ===== Dasar ===== */
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    scroll-behavior: smooth;
+}
+
+/* ===== Komponen ===== */
+.site-header {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+
+.hero-blob {
+    background: var(--pink);
+    border: 6px solid var(--pink);
+    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+    box-shadow: 10px 10px 0 var(--brand);
+}
+
+.card {
+    background: var(--surface);
+    border: var(--border-w) solid var(--line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.thumb {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    font-size: 4.5rem;
+    overflow: hidden;
+}
+
+.tag {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .2rem .6rem;
+    border-radius: var(--radius-pill);
+    background: var(--tint-1);
+    color: var(--brand-strong);
+}
+
+.chip {
+    border: var(--border-w) solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    padding: .5rem 1.1rem;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--on-brand);
+}
+
+.search-input {
+    background: var(--surface);
+    border: var(--border-w) solid var(--line);
+    color: var(--ink);
+}
+
+.search-input::placeholder {
+    color: var(--muted);
+}
+
+.chip:focus-visible,
+.search-input:focus-visible,
+a:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

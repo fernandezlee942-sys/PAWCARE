@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PawCare - Home</title>
+    <link rel="icon" href="logo/logo3.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="HomeStyle.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body class="bg-page text-ink font-body">
+
+    <header class="site-header sticky top-0 z-10 backdrop-blur border-b-[1.5px] border-line">
+        <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2" aria-label="PawCare beranda">
+                <img src="logo/logo3.png" alt="PawCare" class="h-14 w-auto">
+            </a>
+            <nav class="hidden sm:flex gap-6 font-semibold text-muted">
+                <a href="#produk">Produk</a>
+                <a href="#kenapa">Kenapa PawCare</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="max-w-6xl mx-auto px-5 pt-10 pb-12 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+            <h1 class="font-display text-4xl sm:text-5xl font-bold leading-tight">
+                Semua yang dibutuhkan si berbulu, dalam satu tempat.
+            </h1>
+            <p class="mt-4 text-lg max-w-md text-muted">
+                Makanan, mainan, dan perlengkapan harian untuk kucing dan anjing kesayangan Anda.
+            </p>
+            <a href="#produk" class="inline-block mt-6 px-6 py-3 rounded-full font-bold bg-brand text-on-brand">
+                Belanja sekarang
+            </a>
+        </div>
+        <div class="relative h-64 sm:h-80">
+            <div class="hero-blob absolute inset-0 overflow-hidden">
+                <img src="logo/DOGnCAT.jpg" alt="Anak anjing dan kucing bermain bersama"
+                    class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk -->
+    <section id="produk" class="max-w-6xl mx-auto px-5 pb-16">
+        <h2 class="font-display text-3xl font-bold">Produk kami</h2>
+
+        <div class="mt-5 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+            <div id="filters" class="flex flex-wrap gap-2" role="group" aria-label="Filter kategori">
+                <button class="chip" data-cat="All" aria-pressed="true">Semua</button>
+                <button class="chip" data-cat="Cat" aria-pressed="false">Cat</button>
+                <button class="chip" data-cat="Dog" aria-pressed="false">Dog</button>
+                <button class="chip" data-cat="Food" aria-pressed="false">Food</button>
+                <button class="chip" data-cat="Accessories" aria-pressed="false">Accessories</button>
+            </div>
+
+            <input id="search" type="search" placeholder="Cari produk..." aria-label="Cari produk"
+                class="search-input w-full md:w-72 px-4 py-2.5 rounded-full">
+        </div>
+
+        <p id="count" class="mt-4 text-sm font-semibold text-muted"></p>
+        <div id="grid" class="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+        <p id="empty" class="hidden text-center py-16 font-semibold text-muted">
+            Produk tidak ditemukan. Coba kata kunci lain atau pilih kategori Semua.
+        </p>
+    </section>
+
+    <!-- Keunggulan -->
+    <section id="kenapa" class="max-w-6xl mx-auto px-5 pb-16 grid sm:grid-cols-3 gap-5">
+        <div class="card p-6">
+            <h3 class="font-display text-xl font-semibold">Bahan aman</h3>
+            <p class="mt-2 text-muted">Setiap produk dipilih dengan bahan yang ramah untuk hewan.</p>
+        </div>
+        <div class="card p-6">
+            <h3 class="font-display text-xl font-semibold">Pengiriman cepat</h3>
+            <p class="mt-2 text-muted">Pesanan dikemas hari yang sama sebelum pukul 15.00.</p>
+        </div>
+        <div class="card p-6">
+            <h3 class="font-display text-xl font-semibold">Bisa ditukar</h3>
+            <p class="mt-2 text-muted">Tidak cocok dengan hewan Anda? Tukar dalam 7 hari.</p>
+        </div>
+    </section>
+
+    <footer class="text-center py-8 text-sm text-muted border-t-[1.5px] border-line">
+        © 2026 <span class="font-display font-semibold text-brand-strong">PawCare</span>
+    </footer>
+
+    <script src="ScriptHome.js"></script>
+</body>
+
+</html>
