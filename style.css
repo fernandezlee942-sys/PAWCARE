@@ -4,12 +4,51 @@
 *{
   margin: 0;
   user-select: none;
+  font-size: var(--FontSizeGeneral);
+  font-family:var(--FontFamilyGeneral);
 }
+hr{
+  border: none;
+}
+h1{
+  font-size: var(--h1FontSizeGeneral);
+}
+
+
 /* #endregion */
 
 /* #region Variables */
 :root{
+  --FontFamilyGeneral:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+  --FontSizeGeneral: 30px;
+  --h1FontSizeGeneral: 60px;
+  --BorderRadiusGeneral : 12px;
+
+  /* #region ScrollBar */
+  --gap-scrollbar: 15px;
+  --paddingTop-scrollbar: 0px;
+  --ScrollBarimage-Height: 500px;
+  --ScrollBarimage-MaxWidth: 80%;
+  /* #endregion */
+
+  /* #region AboutUs */
+  --AboutUs-BgColor: Pink;
+  --AboutUs-TextColor: white;
+  --AboutUs-Padding: 20px;
+  --AboutUs-HrBgColor:white;
+  /* #endregion */
+
+
   /* #region GeneralBannerVar */
+
+  /* just for the id based navigation --> if you dont give it a bit of offset it kinda got blocked by the banner */
+  [id] {
+    scroll-margin-top: calc(var(--banner-height) + (var(--banner-paddingVertical) * 2) + 20px);
+  }
+
+  --offset-BannerTopText: 20px;
+  --offset-BannerBottomText: 20px;
+
   --banner-height: 8vh;
   --banner-paddingVertical:20px;
   --banner-padding:var(--banner-paddingVertical) 0px;
@@ -18,7 +57,7 @@
   /* #endregion */
   
   /* #region TopBannerVar */
-  --color-banner-top : rgb(253, 156, 0);
+  --color-banner-top : rgb(253 224 214);
   --color-banner-PawcareText : white;
 
   --logo1-height: 400px;
@@ -40,36 +79,46 @@
   --contact-height: 100px;
   --contact-width: 100px;
 
-  --color-banner-bottom: rgb(253, 156, 0);
+  --color-banner-bottom: rgb(253 224 214);
   --color-banner-border-bottom : black;
   /* #endregion */
-  
   
   /* #region ContentWrapper */
   --ContentWrapperElementsTopBottomMargin : 30px;
   --color-ContentWrapperBG: rgb(255, 255, 255);
-  
-  --offset-BannerTopText: 20px;
-  --offset-BannerBottomText: 20px;
-
-  
-  --Contact-TextColor:white;
-  --Contact-Padding : 20px;
-  --Contact-ElementMarginTopBottom: 10px;
-  
   --ContentWrapper-PaddingLeftRight: 30px;
+  
+  
   --hr-height:4px;
   --hr-bgcolor:black;
   --hr-marginTopBottom: 10px;
+
+  --Color-Location-hr:white ;
+
+  --Location-Padding: 20px; 
+  --Location-BgColor: rgb(225, 45, 75);
+  --Location-Padding: 20px;
+  --Location-ElementMarginTop-Bottom: 10px;
+  --Location-TextColor: white;
+
+  --Contact-BgColor: rgb(191 78 56);  
+  --Contact-TextColor:white;
+  --Contact-Padding : 20px;
+  --Contact-ElementMarginTopBottom: 10px;
+
+  --Contact-WAcontainer-gap: 10px;
+  --Contact-h1FontSize:40px;
+
+  --FAQBgColor:pink;
+  --FAQContentBgColor: yellow;
+  --FAQContentTopBottomPadding: 20px;
+  --FAQQuestionTopBottomPadding: 10px;
   /* #endregion */
-
-
-
-
 
 
 }
 /* #endregion */
+
 
 /* #region cursor */
 html, body, * {
@@ -82,9 +131,71 @@ a, a img, button, input, select, textarea, [role="button"] {
 }
 /* #endregion */
 
+/* #region AboutUs */
+#AboutUs{
+  background-color: var(--AboutUs-BgColor);
+  color: var(--AboutUs-TextColor);
+  border-radius: var(--BorderRadiusGeneral);
+  padding: var(--AboutUs-Padding);
+}
+#AboutUs *{
+  margin: 0;
+}
+#AboutUs hr{
+  background-color: var(--AboutUs-HrBgColor);
+}
+.scroll-container {
+    display: flex;
+    gap: var(--gap-scrollbar);
+    overflow-x: auto;
+    padding-top: var(--paddingTop-scrollbar);
+    /* scroll-behavior: smooth; */
+    scroll-snap-type: x mandatory; 
+    scrollbar-width: none;
+}
+
+.scroll-item {
+    max-width: var(--ScrollBarimage-MaxWidth);
+    height: var(--ScrollBarimage-Height);
+    border-radius: var(--BorderRadiusGeneral);
+    /* sembunyiin gmbbr yg lewat batas */
+    overflow: hidden;
+    flex-shrink: 0;            
+    scroll-snap-align: start; 
+}
+
+.scroll-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.grid-item {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+
+/* #endregion */
+
+
+
 
 /* #region BannerTop */
 #Banner {
+  top: 0;
   position: fixed;
   display: flex;
   padding: var(--banner-padding);
@@ -172,6 +283,7 @@ a, a img, button, input, select, textarea, [role="button"] {
 
 
 /* #region ContentWrapper */
+
 /* dont mind the math its just to make it easy to port into mobile, also why use padding its bcos if i try to put margin in the content wrapper the banner will somehow move */
 /* as for why i dont just use margin top = 16vh it's cos of how this goddamm html worked, 0-> it affected the banner (position:fixed) for some reason so just bear with the padding */
 .ContentWrapper{
@@ -202,16 +314,26 @@ a, a img, button, input, select, textarea, [role="button"] {
 
 /* #region Location */
 #Location{
-
+  background-color: var(--Location-BgColor);
+  color: var(--Location-TextColor);
+  padding: var(--Location-Padding);
+  border-radius: var(--BorderRadiusGeneral);
+}
+#Location *{
+  margin: var(--Location-ElementMarginTop-Bottom) 0px;
+}
+#Location hr{
+  background-color: var(--Color-Location-hr);
 }
 /* #endregion */
 
 
 /* #region Contact */
 #Contact{
-  background-color: grey;
+  background-color: var(--Contact-BgColor);
   color: var(--Contact-TextColor);
   padding: var(--Contact-Padding);
+  border-radius: var(--BorderRadiusGeneral);
 }
 #Contact *{
   margin: var(--Contact-ElementMarginTopBottom) 0px;
@@ -220,13 +342,32 @@ a, a img, button, input, select, textarea, [role="button"] {
   color: var(--Contact-TextColor);
   /* text-decoration: none; */
 }
-#Contact h1{
 
+#Contact h1{
+  font-size: var(--Contact-h1FontSize);
 }
+
+#Contact .WAcontainer{
+  display: flex;
+  gap: var(--Contact-WAcontainer-gap);
+}
+
+
 /* #endregion */
 
 /* #region FAQ */
 
+#FAQ summary{
+  background-color: var(--FAQBgColor);
+  margin: 0px;
+  padding: var(--FAQQuestionTopBottomPadding) 0px;
+}
+
+#FAQ p{
+  padding: var(--FAQContentTopBottomPadding) 0px;
+  margin: 0px;
+  background-color: var(--FAQContentBgColor);
+}
 /* #endregion */
 
 
