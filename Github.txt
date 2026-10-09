@@ -46,7 +46,8 @@ git reset --hard HEAD (sama aja kek yg origin/ cmn lbh pendek aja)
 
 
 git checkout fernandez
-git commit -a -m "abc"
+git add .
+git commit -m "abc"
 git push origin fernandez
 
 git checkout main
