@@ -111,7 +111,7 @@ h1{
   --Contact-h1FontSize:40px;
 
   --FAQBgColor:pink;
-  --FAQContentBgColor: yellow;
+  --FAQContentBgColor: rgb(255, 255, 153);
   --FAQContentTopBottomPadding: 20px;
   --FAQQuestionTopBottomPadding: 10px;
   /* #endregion */
