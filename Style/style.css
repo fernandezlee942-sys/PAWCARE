@@ -78,7 +78,8 @@ h1{
   --home-width: 100px;
   --contact-height: 100px;
   --contact-width: 100px;
-
+  --MainPgImg-width: 120px;
+  --MainPgImg-height: 150px;
   --color-banner-bottom: rgb(253 224 214);
   --color-banner-border-bottom : black;
   /* #endregion */
@@ -236,6 +237,9 @@ a, a img, button, input, select, textarea, [role="button"] {
   font-size: var(--banner-top-h1-fontsize);
   font-family: var(--banner-top-h1-fonttype);
 }
+#Banner .TopRightDivBanner{
+  display: flex;
+}
 /* #endregion */
 
 
@@ -278,6 +282,10 @@ a, a img, button, input, select, textarea, [role="button"] {
 #BannerBottom img#ContactImg{
   width: var(--contact-width);
   height: var(--contact-height);
+}
+#BannerBottom img#MainPgImg{
+  width: var(--MainPgImg-width);
+  height: var(--MainPgImg-height);
 }
 /* #endregion */
 
