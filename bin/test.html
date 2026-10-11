@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pure Horizontal Scroll</title>
+    <style>
+        :root{
+            --gap-scrollbar: 20px;
+            --paddingTop-scrollbar: 20px;
+
+            --ScrollBarimage-Height: 200px;
+            --ScrollBarimage-MinWidth: 300px;
+            --ScrollBarimage-BorderRadius: 12px;
+        }
+
+        .scroll-container {
+            display: flex;
+            gap: var(--gap-scrollbar);
+            overflow-x: auto;
+            padding-top: var(--paddingTop-scrollbar);
+            /* scroll-behavior: smooth; */
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none;
+        }
+
+        .scroll-item {
+            min-width: var(--ScrollBarimage-MinWidth);
+            height: var(--ScrollBarimage-Height);
+            border-radius: var(--ScrollBarimage-BorderRadius);
+            /* sembunyiin gmbbr yg lewat batas */
+            overflow: hidden;
+            flex-shrink: 0;            
+            scroll-snap-align: start; 
+        }
+
+        .scroll-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            padding: 20px;
+        }
+
+        .grid-item {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            font-family: sans-serif;
+        }
+
+</style>
+</head>
+<body>
+
+    <h2>Horizontal Scroll Murni CSS</h2>
+
+    <div class="scroll-container">
+        <div class="scroll-item"><img src="https://picsum.photos/300/200?random=3" alt="Gambar 3"></div>
+        <div class="scroll-item"><img src="https://picsum.photos/300/200?random=3" alt="Gambar 3"></div>
+        <div class="scroll-item"><img src="https://picsum.photos/300/200?random=3" alt="Gambar 3"></div>
+        <div class="scroll-item"><img src="https://picsum.photos/300/200?random=4" alt="Gambar 4"></div>
+        <div class="scroll-item"><img src="https://picsum.photos/300/200?random=5" alt="Gambar 5"></div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">Kotak 1</div>
+        <div class="grid-item">Kotak 2</div>
+        <div class="grid-item">Kotak 3</div>
+        <div class="grid-item">Kotak 4</div>
+        <div class="grid-item">Kotak 5</div>
+        <div class="grid-item">Kotak 6</div>
+    </div>
+
+</body>
+</html>
