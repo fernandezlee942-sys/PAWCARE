@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PawCare - Grooming & Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="layanan">
+    <h2>Layanan Grooming</h2>
+    <p class="sub">Pilih paket perawatan yang sesuai untuk hewan kesayanganmu.</p>
+
+    <div class="paket-wrap">
+      <article class="paket">
+        <h3>Paket Basic</h3>
+        <div class="harga">Rp 50.000</div>
+        <p>Mandi bersih dan pengeringan.</p>
+        <button type="button" class="btn-detail" data-paket="basic">Detail</button>
+      </article>
+
+      <article class="paket">
+        <h3>Paket Premium</h3>
+        <div class="harga">Rp 100.000</div>
+        <p>Mandi, potong kuku, bersihkan telinga, sisir bulu.</p>
+        <button type="button" class="btn-detail" data-paket="premium">Detail</button>
+      </article>
+
+      <article class="paket">
+        <h3>Paket Deluxe</h3>
+        <div class="harga">Rp 175.000</div>
+        <p>Perawatan lengkap dengan potong bulu dan parfum.</p>
+        <button type="button" class="btn-detail" data-paket="deluxe">Detail</button>
+      </article>
+    </div>
+  </section>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-judul" hidden>
+    <div class="modal-isi">
+      <button type="button" class="tutup" id="tutup" aria-label="Tutup">&times;</button>
+      <h3 id="modal-judul"></h3>
+      <ul id="modal-fasilitas"></ul>
+      <button type="button" class="btn-pesan" id="btn-pesan">Pesan paket ini</button>
+    </div>
+  </div>
+
+  <section id="booking">
+    <h2>Booking Grooming</h2>
+    <p class="sub">Isi data berikut, kami akan konfirmasi jadwalnya.</p>
+
+    <form id="form-booking" novalidate>
+      <div class="field">
+        <label for="pemilik">Nama pemilik</label>
+        <input type="text" id="pemilik" name="pemilik">
+        <div class="pesan-error"></div>
+      </div>
+
+      <div class="field">
+        <label for="hewan">Jenis hewan</label>
+        <select id="hewan" name="hewan">
+          <option value="">-- Pilih --</option>
+          <option value="Kucing">Kucing</option>
+          <option value="Anjing">Anjing</option>
+        </select>
+        <div class="pesan-error"></div>
+      </div>
+
+      <div class="field">
+        <label for="layanan-pilihan">Jenis layanan</label>
+        <select id="layanan-pilihan" name="layanan">
+          <option value="">-- Pilih --</option>
+          <option value="basic">Paket Basic - Rp 50.000</option>
+          <option value="premium">Paket Premium - Rp 100.000</option>
+          <option value="deluxe">Paket Deluxe - Rp 175.000</option>
+        </select>
+        <div class="pesan-error"></div>
+      </div>
+
+      <div class="field">
+        <label for="tanggal">Tanggal</label>
+        <input type="date" id="tanggal" name="tanggal">
+        <div class="pesan-error"></div>
+      </div>
+
+      <button type="submit" class="btn-kirim">Kirim booking</button>
+    </form>
+
+    <div id="sukses" role="status" hidden></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
