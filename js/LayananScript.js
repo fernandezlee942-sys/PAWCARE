@@ -1,4 +1,3 @@
-/* ---------- Data paket ---------- */
 const dataPaket = {
   basic:   { nama: "Paket Basic",   fasilitas: ["Mandi dengan shampo hewan", "Pengeringan bulu", "Durasi sekitar 45 menit"] },
   premium: { nama: "Paket Premium", fasilitas: ["Semua fasilitas Basic", "Potong kuku", "Bersihkan telinga", "Sisir bulu"] },
@@ -22,15 +21,16 @@ document.querySelectorAll(".btn-detail").forEach(function (tombol) {
       daftar.appendChild(li);
     });
 
-    modal.hidden = false; 
+    modal.hidden = false;  
   });
 });
 
 function tutupModal() {
-  modal.hidden = true; 
+  modal.hidden = true;     
 }
 
 document.getElementById("tutup").addEventListener("click", tutupModal);
+
 
 modal.addEventListener("click", function (e) {
   if (e.target === modal) tutupModal();
@@ -39,6 +39,7 @@ modal.addEventListener("click", function (e) {
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") tutupModal();
 });
+
 
 document.getElementById("btn-pesan").addEventListener("click", function () {
   document.getElementById("layanan-pilihan").value = paketTerpilih;
@@ -64,7 +65,7 @@ function bersihkanError(input) {
 }
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault();  
+  e.preventDefault();   
   sukses.hidden = true;
   let valid = true;
 
