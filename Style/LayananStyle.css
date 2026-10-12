@@ -1,0 +1,265 @@
+:root {
+  --bg: #fff9f2;          
+  --kartu: #ffffff;
+  --garis: #efe3d3;       
+  --oranye: #f28c28;      
+  --oranye-gelap: #b8620f;
+  --oranye-muda: #ffebd0; 
+  --teks: #2b1b10;        
+  --teks-redup: #7a6a5c;
+  --merah: #d64545;
+  --hijau: #2e8b57;
+  --radius: 20px;
+  --radius-pill: 999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--teks);
+  line-height: 1.5;
+}
+
+[hidden] { display: none !important; }
+
+section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+section h2 {
+  margin: 0 0 6px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 0 0 32px;
+  color: var(--teks-redup);
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+.btn-detail,
+.btn-pesan,
+.btn-kirim {
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  transition: background .2s, color .2s, transform .1s, box-shadow .2s;
+}
+
+.btn-pesan,
+.btn-kirim {
+  background: var(--oranye);
+  color: #fff;
+  border: 2px solid var(--oranye);
+}
+.btn-pesan:hover,
+.btn-kirim:hover {
+  background: #e07d1a;
+  border-color: #e07d1a;
+  box-shadow: 0 6px 16px rgba(242, 140, 40, .35);
+}
+
+.btn-detail {
+  background: #fff;
+  color: var(--oranye-gelap);
+  border: 2px solid var(--oranye);
+}
+.btn-detail:hover {
+  background: var(--oranye-muda);
+}
+
+button:active { transform: scale(.97); }
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(242, 140, 40, .45);
+  outline-offset: 2px;
+}
+
+#layanan h2,
+#layanan .sub { text-align: left; }
+
+.paket-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.paket {
+  display: flex;
+  flex-direction: column;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: transform .2s, box-shadow .2s;
+}
+.paket:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(120, 80, 30, .12);
+}
+
+.paket h3 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.harga {
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--oranye-gelap);
+}
+
+.paket p {
+  flex: 1;               
+  margin: 0 0 20px;
+  color: var(--teks-redup);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(43, 27, 16, .5);
+  backdrop-filter: blur(3px);
+}
+
+.modal-isi {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 32px 28px 28px;
+  background: var(--kartu);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+}
+
+.modal-isi h3 {
+  margin: 0 0 14px;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.modal-isi ul {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+.modal-isi li {
+  padding: 8px 0 8px 28px;
+  border-bottom: 1px dashed var(--garis);
+  position: relative;
+}
+.modal-isi li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--oranye-muda);
+  color: var(--oranye-gelap);
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.modal-isi .btn-pesan { width: 100%; }
+
+.tutup {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--garis);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--teks);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.tutup:hover { background: var(--oranye-muda); }
+
+#booking form {
+  max-width: 520px;
+  padding: 28px;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: var(--radius);
+}
+
+.field { margin-bottom: 18px; }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 18px;
+  font: inherit;
+  color: var(--teks);
+  background: #fff;
+  border: 1px solid var(--garis);
+  border-radius: var(--radius-pill);
+  transition: border-color .2s, box-shadow .2s;
+}
+input:focus,
+select:focus {
+  border-color: var(--oranye);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(242, 140, 40, .2);
+}
+
+input.salah,
+select.salah {
+  border-color: var(--merah);
+  background: #fff5f5;
+}
+.pesan-error {
+  min-height: 1.2em;
+  margin: 4px 0 0 18px;
+  font-size: .85rem;
+  color: var(--merah);
+}
+
+.btn-kirim { width: 100%; padding: 14px 24px; }
+
+#sukses {
+  max-width: 520px;
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: #e9f6ef;
+  border: 1px solid #b6e0c8;
+  border-radius: var(--radius);
+  color: #1e6b42;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  section { padding: 36px 16px; }
+  #booking form { padding: 20px; }
+  .modal-isi { padding: 28px 20px 20px; }
+}
