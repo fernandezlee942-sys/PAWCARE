@@ -7,6 +7,17 @@
     <title>PawCare - Home</title>
     <link rel="icon" href="logo/logo3.png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        @theme {
+            --color-page: #FFF7F4; --color-ink: #4A2A2E; --color-muted: #7D5E61; --color-line: #F6DCD3;
+            --color-brand: #F6B3A0; --color-brand-strong: #BF4E38; --color-on-brand: #4A2A2E;
+            --color-tint-1: #FDE0D6;
+            --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif;
+        }
+    </style>
     <link rel="stylesheet" href="Style/HomeStyle.css">
 </head>
 
@@ -14,42 +25,57 @@
 
     <header class="site-header sticky top-0 z-20 backdrop-blur border-b-[1.5px] border-line">
         <div class="max-w-6xl mx-auto px-4 sm:px-5 py-2 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2" aria-label="PawCare beranda">
+            <a href="Home.html" class="flex items-center gap-2" aria-label="PawCare beranda">
                 <img src="logo/logo3.png" alt="PawCare" class="h-11 sm:h-14 w-auto">
             </a>
 
             <nav class="desktop-nav" aria-label="Navigasi utama">
-                <a href="index.html" class="back-link">← Halaman sebelumnya</a>
+                <a href="Home.html" aria-current="page" class="text-brand-strong">Beranda</a>
+                <a href="Layanan.html">Layanan</a>
+                <a href="vet.html">Dokter</a>
                 <a href="#produk">Produk</a>
-                <a href="#kenapa">Kenapa PawCare</a>
+                <a href="index.html">Tentang</a>
+                <a href="Troli.html" class="flex items-center gap-1.5">Troli
+                    <span
+                        class="cart-badge inline-grid min-w-5 h-5 px-1 place-items-center rounded-full bg-brand-strong text-white text-xs">0</span></a>
+                <a href="Account.html" class="nav-cta">Masuk / Daftar</a>
             </nav>
 
-            <button id="menu-btn" class="menu-btn" aria-label="Buka menu"
-                aria-expanded="false" aria-controls="mobile-nav">
+            <button id="menu-btn" class="menu-btn" aria-label="Buka menu" aria-expanded="false"
+                aria-controls="mobile-nav">
                 <span></span><span></span><span></span>
             </button>
         </div>
 
         <nav id="mobile-nav" class="mobile-nav hidden" aria-label="Navigasi seluler">
-            <a href="index.html" class="back-link">← Halaman sebelumnya</a>
+            <a href="Home.html" aria-current="page" class="text-brand-strong">Beranda</a>
+            <a href="Layanan.html">Layanan</a>
+            <a href="vet.html">Dokter</a>
             <a href="#produk">Produk</a>
-            <a href="#kenapa">Kenapa PawCare</a>
+            <a href="index.html">Tentang</a>
+            <a href="Troli.html">Troli
+                <span
+                    class="cart-badge inline-grid min-w-5 h-5 px-1 place-items-center rounded-full bg-brand-strong text-white text-xs">0</span></a>
+            <a href="Account.html" class="nav-cta">Masuk / Daftar</a>
         </nav>
     </header>
 
     <main>
-        <section class="max-w-6xl mx-auto px-4 sm:px-5 pt-8 sm:pt-10 pb-10 sm:pb-12 grid md:grid-cols-2 gap-8 items-center">
+        <section
+            class="max-w-6xl mx-auto px-4 sm:px-5 pt-8 sm:pt-10 pb-10 sm:pb-12 grid md:grid-cols-2 gap-8 items-center">
             <div class="text-center md:text-left">
                 <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                    Semua yang dibutuhkan hewan kesayangan anda, dalam satu tempat.
+                    Dokter, perawatan, dan perlengkapan untuk hewan kesayanganmu.
                 </h1>
                 <p class="mt-4 text-base sm:text-lg max-w-md mx-auto md:mx-0 text-muted">
-                    Makanan, mainan, dan perlengkapan harian untuk kucing dan anjing kesayangan Anda.
+                    Booking dokter hewan, grooming, dan pet hotel. Belanja makanan serta obat rutin, bisa dikirim
+                    otomatis.
                 </p>
-                <a href="#produk"
-                    class="inline-block mt-6 px-6 py-3 rounded-full font-bold bg-brand text-on-brand w-full sm:w-auto text-center">
-                    Belanja sekarang
-                </a>
+                <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                    <a href="vet.html#booking"
+                        class="px-6 py-3 rounded-full font-bold bg-brand text-on-brand text-center">Booking sekarang</a>
+                    <a href="#produk" class="px-6 py-3 rounded-full font-bold btn-ghost text-center">Belanja produk</a>
+                </div>
             </div>
             <div class="relative h-56 sm:h-72 md:h-80">
                 <div class="hero-blob absolute inset-0 overflow-hidden">
@@ -59,8 +85,42 @@
             </div>
         </section>
 
+        <section id="layanan" class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
+            <h2 class="font-display text-2xl sm:text-3xl font-bold">Layanan</h2>
+            <p class="mt-1 text-muted">Pilih layanan, lalu booking jadwal dan cabang yang paling dekat.</p>
+            <div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <a href="vet.html#booking" class="card svc p-5" style="--c:var(--tint-1)"><span
+                        class="svc-ico">🩺</span>
+                    <h3 class="font-display text-lg font-semibold">Dokter hewan</h3>
+                    <p class="text-muted text-sm mt-1">Konsultasi dan pemeriksaan umum.</p>
+                    <p class="mt-3 font-bold text-brand-strong">Mulai Rp 120.000</p>
+                </a>
+                <a href="vet.html#booking" class="card svc p-5" style="--c:var(--tint-2)"><span
+                        class="svc-ico">💉</span>
+                    <h3 class="font-display text-lg font-semibold">Vaksinasi</h3>
+                    <p class="text-muted text-sm mt-1">Vaksin rutin sesuai usia hewan.</p>
+                    <p class="mt-3 font-bold text-brand-strong">Mulai Rp 200.000</p>
+                </a>
+                <a href="Layanan.html" class="card svc p-5" style="--c:var(--tint-3)"><span class="svc-ico">🛁</span>
+                    <h3 class="font-display text-lg font-semibold">Grooming</h3>
+                    <p class="text-muted text-sm mt-1">Paket Basic, Premium, dan Deluxe.</p>
+                    <p class="mt-3 font-bold text-brand-strong">Mulai Rp 50.000</p>
+                </a>
+                <a href="vet.html#booking" class="card svc p-5" style="--c:var(--tint-4)"><span
+                        class="svc-ico">🏡</span>
+                    <h3 class="font-display text-lg font-semibold">Pet hotel</h3>
+                    <p class="text-muted text-sm mt-1">Kennel bersih, dipantau setiap hari.</p>
+                    <p class="mt-3 font-bold text-brand-strong">Rp 90.000 / malam</p>
+                </a>
+            </div>
+            <div class="mt-4 text-sm"><a href="vet.html#dokter" class="back-link">Lihat dokter dan cabang →</a></div>
+        </section>
+
         <section id="produk" class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
-            <h2 class="font-display text-2xl sm:text-3xl font-bold">Produk kami</h2>
+            <div class="flex items-end justify-between gap-3">
+                <h2 class="font-display text-2xl sm:text-3xl font-bold">Produk kami</h2>
+                <a href="Troli.html" class="back-link text-sm whitespace-nowrap">Lihat troli →</a>
+            </div>
 
             <div class="mt-5 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
                 <div id="filters" class="filters flex gap-2 md:flex-wrap" role="group" aria-label="Filter kategori">
@@ -69,20 +129,32 @@
                     <button class="chip" data-cat="Dog" aria-pressed="false">Dog</button>
                     <button class="chip" data-cat="Food" aria-pressed="false">Food</button>
                     <button class="chip" data-cat="Accessories" aria-pressed="false">Accessories</button>
+                    <button class="chip" data-cat="Obat" aria-pressed="false">Obat</button>
                 </div>
 
                 <input id="search" type="search" placeholder="Cari produk..." aria-label="Cari produk"
                     class="search-input w-full md:w-72 px-4 py-2.5 rounded-full">
             </div>
 
-            <p id="count" class="mt-4 text-sm font-semibold text-muted"></p>
+            <p class="sub-banner mt-4">Makanan dan obat rutin? Pilih <b>Langganan</b> di kartu produk, kami kirim
+                otomatis sesuai jadwalmu.</p>
+            <p id="count" class="mt-4 text-sm font-semibold text-muted" aria-live="polite"></p>
             <div id="grid" class="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5"></div>
             <p id="empty" class="hidden text-center py-16 font-semibold text-muted">
                 Produk tidak ditemukan. Coba kata kunci lain atau pilih kategori Semua.
             </p>
         </section>
 
-        <section id="kenapa" class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+        <section id="ulasan" class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
+            <div class="flex items-end justify-between gap-3">
+                <h2 class="font-display text-2xl sm:text-3xl font-bold">Kata pelanggan</h2>
+                <a href="vet.html#ulasan" class="back-link text-sm whitespace-nowrap">Semua ulasan →</a>
+            </div>
+            <div id="reviews" class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5"></div>
+        </section>
+
+        <section id="kenapa"
+            class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             <div class="card p-5 sm:p-6">
                 <h3 class="font-display text-xl font-semibold">Bahan aman</h3>
                 <p class="mt-2 text-muted">Setiap produk dipilih dengan bahan yang ramah untuk hewan.</p>
@@ -98,24 +170,40 @@
         </section>
     </main>
 
+    <dialog id="sub-dialog" class="sub-dialog" aria-labelledby="sub-title">
+        <form method="dialog" id="sub-form">
+            <h3 id="sub-title" class="font-display text-xl font-semibold">Langganan produk</h3>
+            <p id="sub-name" class="mt-1 font-semibold text-brand-strong"></p>
+            <label for="sub-qty" class="field-label">Jumlah tiap kirim</label>
+            <input id="sub-qty" type="number" min="1" max="10" value="1"
+                class="search-input w-full px-4 py-2.5 rounded-2xl">
+            <label for="sub-freq" class="field-label">Dikirim</label>
+            <select id="sub-freq" class="search-input w-full px-4 py-2.5 rounded-2xl">
+                <option value="14">Setiap 2 minggu</option>
+                <option value="30" selected>Setiap bulan</option>
+                <option value="60">Setiap 2 bulan</option>
+            </select>
+            <p id="sub-next" class="mt-3 text-sm text-muted"></p>
+            <div class="mt-5 flex gap-3 justify-end">
+                <button value="cancel" class="px-5 py-2.5 rounded-full font-bold btn-ghost">Batal</button>
+                <button id="sub-ok" value="ok" class="px-5 py-2.5 rounded-full font-bold bg-brand text-on-brand">Mulai
+                    langganan</button>
+            </div>
+        </form>
+    </dialog>
+    <div id="toast" class="toast" role="status"></div>
+
     <footer class="text-center py-8 px-4 text-sm text-muted border-t-[1.5px] border-line">
+        <div class="mb-2 flex flex-wrap justify-center gap-4 font-semibold">
+            <a href="Home.html">Beranda</a><a href="Layanan.html">Layanan</a><a href="vet.html">Dokter</a><a
+                href="Troli.html">Troli</a><a href="Account.html">Akun</a>
+        </div>
         © 2026 <span class="font-display font-semibold text-brand-strong">PawCare</span>
     </footer>
 
-    <script src="js/ScriptHome.js"></script>
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileNav = document.getElementById('mobile-nav');
-
-        function setMenu(open) {
-            mobileNav.classList.toggle('hidden', !open);
-            menuBtn.setAttribute('aria-expanded', String(open));
-            menuBtn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
-        }
-
-        menuBtn.addEventListener('click', () => setMenu(mobileNav.classList.contains('hidden')));
-        mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
-    </script>
+    <script src="js/DataProduk.js"></script>
+    <script src="js/shared.js"></script>
+    <script src="js/scriptHome.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PawCare Vet</title>
+    <link rel="icon" href="logo/logo3.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style/HomeStyle.css">
+</head>
+
+<body class="bg-(--bg) text-(--ink) font-(family-name:--font-body)">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header sticky top-0 z-20 backdrop-blur border-b-[1.5px] border-(--line)">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5 py-2 flex items-center justify-between">
+            <a href="Home.html" class="flex items-center gap-2" aria-label="PawCare beranda">
+                <img src="logo/logo3.png" alt="PawCare" class="h-11 sm:h-14 w-auto">
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navigasi utama">
+                <a href="Home.html">Beranda</a>
+                <a href="Layanan.html">Layanan</a>
+                <a href="vet.html" aria-current="page" class="text-(--brand-strong) font-bold">Dokter</a>
+                <a href="Home.html#produk">Produk</a>
+                <a href="index.html">Tentang</a>
+                <a href="Troli.html" class="flex items-center gap-1.5">Troli
+                    <span
+                        class="cart-badge inline-grid min-w-5 h-5 px-1 place-items-center rounded-full bg-(--brand-strong) text-white text-xs">0</span></a>
+                <a href="Account.html" class="nav-cta">Masuk / Daftar</a>
+            </nav>
+
+            <button id="menu-btn" class="menu-btn" aria-label="Buka menu" aria-expanded="false"
+                aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <nav id="mobile-nav" class="mobile-nav hidden" aria-label="Navigasi seluler">
+            <a href="Home.html">Beranda</a>
+            <a href="Layanan.html">Layanan</a>
+            <a href="vet.html" aria-current="page" class="text-(--brand-strong) font-bold">Dokter</a>
+            <a href="Home.html#produk">Produk</a>
+            <a href="index.html">Tentang</a>
+            <a href="Troli.html">Troli
+                <span
+                    class="cart-badge inline-grid min-w-5 h-5 px-1 place-items-center rounded-full bg-(--brand-strong) text-white text-xs">0</span></a>
+            <a href="Account.html" class="nav-cta">Masuk / Daftar</a>
+        </nav>
+    </header>
+
+    <!-- ===== JUDUL DAN TAB ===== -->
+    <section class="bg-(--tint-1) pt-7">
+        <div class="max-w-6xl mx-auto px-4 sm:px-5">
+            <h1 class="font-(family-name:--font-display) text-3xl sm:text-5xl font-bold">PawCare Vet</h1>
+            <p class="mt-1 mb-5 text-(--muted)">Konsultasi, vaksinasi, dan pet hotel untuk hewan kesayanganmu.</p>
+            <nav id="tabs" class="flex gap-1 overflow-x-auto" role="tablist" aria-label="Menu dokter"></nav>
+        </div>
+    </section>
+
+    <!-- ===== ISI HALAMAN ===== -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-5 pt-6 pb-16">
+        <div id="view"></div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="text-center py-8 px-4 text-sm text-(--muted) border-t-[1.5px] border-(--line)">
+        <div class="mb-2 flex flex-wrap justify-center gap-4 font-semibold">
+            <a href="Home.html">Beranda</a><a href="Layanan.html">Layanan</a><a href="vet.html">Dokter</a><a
+                href="Troli.html">Troli</a><a href="Account.html">Akun</a>
+        </div>
+        © 2026 <span class="font-(family-name:--font-display) font-semibold text-(--brand-strong)">PawCare</span>
+    </footer>
+
+    <!-- ===== NOTIFIKASI ===== -->
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="js/Shared.js"></script>
+    <script src="js/Vet.js"></script>
+</body>
+
+</html>
