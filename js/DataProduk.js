@@ -1,0 +1,16 @@
+const CATALOG = [
+    { id: 1,  name: "Makanan Kucing",     cats: ["Cat", "Food"], price: 85000,  stock: 24, img: "produk/makanan-kucing.jpg",     emoji: "🐱" },
+    { id: 2,  name: "Makanan Anjing",     cats: ["Dog", "Food"], price: 120000, stock: 18, img: "produk/makanan-anjing.jpg",     emoji: "🐶" },
+    { id: 3,  name: "Camilan Anjing",     cats: ["Dog", "Food"], price: 25000,  stock: 40, img: "produk/camilan-anjing.jpg",     emoji: "🦴" },
+    { id: 4,  name: "Pasir Kucing",       cats: ["Cat"],         price: 55000,  stock: 30, img: "produk/pasir-kucing.jpg",       emoji: "🪣" },
+    { id: 5,  name: "Kandang Kucing",     cats: ["Cat", "Accessories"], price: 350000, stock: 5, img: "produk/kandang-kucing.jpg", emoji: "🏠" },
+    { id: 6,  name: "Tiang Garukan",      cats: ["Cat", "Accessories"], price: 180000, stock: 9, img: "produk/tiang-garukan.jpg",  emoji: "🐾" },
+    { id: 7,  name: "Tongkat Bulu",       cats: ["Cat", "Accessories"], price: 20000, stock: 35, img: "produk/tongkat-bulu.jpg",  emoji: "🪶" },
+    { id: 8,  name: "Kalung Lonceng",     cats: ["Cat", "Accessories"], price: 15000, stock: 2,  img: "produk/kalung-lonceng.jpg", emoji: "🔔" },
+    { id: 9,  name: "Tempat Tidur Anjing", cats: ["Dog", "Accessories"], price: 220000, stock: 7, img: "produk/tempat-tidur-anjing.jpg", emoji: "🛏️" },
+    { id: 10, name: "Sampo Anjing",       cats: ["Dog"],         price: 45000,  stock: 22, img: "produk/sampo-anjing.jpg",       emoji: "🧴" },
+    { id: 11, name: "Bola Karet",         cats: ["Dog", "Accessories"], price: 18000, stock: 50, img: "produk/bola-karet.jpg",    emoji: "🎾" },
+    { id: 12, name: "Tali Tuntun",        cats: ["Dog", "Accessories"], price: 40000, stock: 16, img: "produk/tali-tuntun.jpg",   emoji: "🦮" },
+    { id: 13, name: "Mangkuk Makan",      cats: ["Accessories"], price: 35000,  stock: 28, img: "produk/mangkuk-makan.jpg",      emoji: "🥣" },
+    { id: 14, name: "Tas Travel",         cats: ["Accessories"], price: 160000, stock: 6,  img: "produk/tas-travel.jpg",         emoji: "🎒" },
+];

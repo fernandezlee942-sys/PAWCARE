@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PawCare - Troli</title>
+    <link rel="icon" href="logo/logo3.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="Style/TroliStyle.css">
+</head>
+
+<body class="bg-page text-ink font-body">
+
+    <!-- Header -->
+    <header class="site-header sticky top-0 z-10 backdrop-blur border-b-[1.5px] border-line">
+        <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+            <a href="Home.html" class="flex items-center gap-2" aria-label="PawCare beranda">
+                <img src="logo/logo3.png" alt="PawCare" class="h-14 w-auto">
+            </a>
+            <nav class="flex gap-5 sm:gap-6 font-semibold text-muted items-center">
+                <a href="Home.html" class="hidden sm:inline">Beranda</a>
+                <a href="Home.html#produk" class="hidden sm:inline">Produk</a>
+                <a href="troli.html" class="nav-active flex items-center gap-2">
+                    Troli
+                    <span id="navBadge" class="badge">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-5 pt-8 pb-16">
+        <h1 class="font-display text-3xl sm:text-4xl font-bold">Troli Belanja</h1>
+        <p class="mt-1 text-muted">Cek ulang pesanan Anda sebelum checkout.</p>
+
+        <!-- Tabs -->
+        <div class="tabs mt-6" role="tablist" aria-label="Menu troli">
+            <button class="tab" role="tab" data-tab="cart" aria-selected="true">
+                Troli <span class="tab-count" id="cntCart">0</span>
+            </button>
+            <button class="tab" role="tab" data-tab="wish" aria-selected="false">
+                Wishlist <span class="tab-count" id="cntWish">0</span>
+            </button>
+            <button class="tab" role="tab" data-tab="log" aria-selected="false">
+                Riwayat Transaksi <span class="tab-count" id="cntLog">0</span>
+            </button>
+        </div>
+
+        <!-- TAB: TROLI -->
+        <section id="tab-cart" class="mt-6 grid lg:grid-cols-[1fr_360px] gap-6 items-start">
+            <div>
+                <div class="card">
+                    <div class="cart-head">
+                        <label class="check-label">
+                            <input type="checkbox" id="checkAll" class="check">
+                            <span>Pilih semua</span>
+                        </label>
+                        <button id="btnRemoveSel" class="link-btn danger">Hapus terpilih</button>
+                    </div>
+                    <div id="cartList"></div>
+                    <div id="cartEmpty" class="empty hidden">
+                        <div class="empty-icon">🛒</div>
+                        <p class="font-semibold">Troli Anda masih kosong</p>
+                        <p class="text-muted text-sm mt-1">Yuk pilih produk favorit untuk si berbulu.</p>
+                        <a href="Home.html#produk" class="btn-primary inline-block mt-4">Mulai belanja</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ringkasan -->
+            <aside class="card summary lg:sticky lg:top-24">
+                <h2 class="font-display text-xl font-semibold">Ringkasan belanja</h2>
+
+                <div class="voucher mt-4">
+                    <input id="voucherInput" type="text" placeholder="Kode voucher (coba PAWCARE10)"
+                        aria-label="Kode voucher" class="search-input">
+                    <button id="btnVoucher" class="btn-outline">Pakai</button>
+                </div>
+                <p id="voucherMsg" class="text-sm mt-2 min-h-5"></p>
+
+                <dl class="sum-rows">
+                    <div><dt>Subtotal (<span id="sumQty">0</span> barang)</dt><dd id="sumSub">Rp0</dd></div>
+                    <div><dt>Ongkos kirim</dt><dd id="sumShip">Rp0</dd></div>
+                    <div><dt>Diskon</dt><dd id="sumDisc" class="text-ok">-Rp0</dd></div>
+                </dl>
+                <div class="sum-total">
+                    <span>Total</span>
+                    <span id="sumTotal">Rp0</span>
+                </div>
+                <p class="text-xs text-muted mt-2">Gratis ongkir untuk belanja mulai Rp150.000.</p>
+
+                <button id="btnCheckout" class="btn-primary w-full mt-4" disabled>Checkout</button>
+            </aside>
+        </section>
+
+        <!-- TAB: WISHLIST -->
+        <section id="tab-wish" class="mt-6 hidden">
+            <div id="wishGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+            <div id="wishEmpty" class="empty hidden card">
+                <div class="empty-icon">🤍</div>
+                <p class="font-semibold">Wishlist masih kosong</p>
+                <p class="text-muted text-sm mt-1">Tekan ikon hati pada produk untuk menyimpannya di sini.</p>
+            </div>
+        </section>
+
+        <!-- TAB: LOG TRANSAKSI -->
+        <section id="tab-log" class="mt-6 hidden">
+            <div id="logList" class="flex flex-col gap-4"></div>
+            <div id="logEmpty" class="empty hidden card">
+                <div class="empty-icon">🧾</div>
+                <p class="font-semibold">Belum ada transaksi</p>
+                <p class="text-muted text-sm mt-1">Pesanan yang Anda buat akan tercatat di sini lengkap dengan tanggal dan ID transaksi.</p>
+            </div>
+        </section>
+
+        <!-- Semua produk (sama dengan produk di Home) -->
+        <section class="mt-14" id="rekom">
+            <h2 class="font-display text-2xl font-bold">Tambah produk ke troli</h2>
+
+            <div class="mt-5 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+                <div id="recFilters" class="flex flex-wrap gap-2" role="group" aria-label="Filter kategori">
+                    <button class="chip" data-cat="All" aria-pressed="true">Semua</button>
+                    <button class="chip" data-cat="Cat" aria-pressed="false">Cat</button>
+                    <button class="chip" data-cat="Dog" aria-pressed="false">Dog</button>
+                    <button class="chip" data-cat="Food" aria-pressed="false">Food</button>
+                    <button class="chip" data-cat="Accessories" aria-pressed="false">Accessories</button>
+                </div>
+                <input id="recSearch" type="search" placeholder="Cari produk..." aria-label="Cari produk"
+                    class="search-input w-full md:w-72">
+            </div>
+
+            <p id="recCount" class="mt-4 text-sm font-semibold text-muted"></p>
+            <div id="recGrid" class="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"></div>
+            <p id="recEmpty" class="hidden text-center py-16 font-semibold text-muted">
+                Produk tidak ditemukan. Coba kata kunci lain atau pilih kategori Semua.
+            </p>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-sm text-muted border-t-[1.5px] border-line">
+        © 2026 <span class="font-display font-semibold text-brand-strong">PawCare</span>
+    </footer>
+
+    <!-- Modal Checkout -->
+    <dialog id="checkoutDialog" class="modal">
+        <form id="checkoutForm" method="dialog" class="modal-body" novalidate>
+            <div class="flex items-start justify-between gap-4">
+                <h2 class="font-display text-2xl font-bold">Checkout</h2>
+                <button type="button" id="btnCloseDlg" class="icon-btn" aria-label="Tutup">✕</button>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3 mt-4">
+                <label class="field">
+                    <span>Nama penerima</span>
+                    <input id="fName" required class="search-input rounded-xl" placeholder="Nama lengkap">
+                </label>
+                <label class="field">
+                    <span>No. HP</span>
+                    <input id="fPhone" required inputmode="tel" class="search-input rounded-xl" placeholder="08xxxxxxxxxx">
+                </label>
+                <label class="field sm:col-span-2">
+                    <span>Alamat pengiriman</span>
+                    <textarea id="fAddr" required rows="2" class="search-input rounded-xl" placeholder="Jalan, kelurahan, kota"></textarea>
+                </label>
+            </div>
+
+            <fieldset class="mt-4">
+                <legend class="font-semibold mb-2">Metode pembayaran</legend>
+                <div class="grid sm:grid-cols-3 gap-2">
+                    <label class="pay-opt"><input type="radio" name="pay" value="Transfer Bank" checked><span>🏦 Transfer Bank</span></label>
+                    <label class="pay-opt"><input type="radio" name="pay" value="E-Wallet"><span>📱 E-Wallet</span></label>
+                    <label class="pay-opt"><input type="radio" name="pay" value="COD"><span>💵 Bayar di tempat</span></label>
+                </div>
+            </fieldset>
+
+            <div class="mt-4 rounded-2xl p-4 bg-soft">
+                <div class="flex justify-between text-sm"><span class="text-muted">Jumlah barang</span><span id="dlgQty">0</span></div>
+                <div class="flex justify-between font-bold text-lg mt-1"><span>Total bayar</span><span id="dlgTotal">Rp0</span></div>
+            </div>
+            <p id="formErr" class="text-sm text-danger mt-2 min-h-5"></p>
+
+            <div class="flex gap-3 mt-2">
+                <button type="button" id="btnCancelDlg" class="btn-outline flex-1">Batal</button>
+                <button type="submit" class="btn-primary flex-1">Buat pesanan</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/DataProduk.js"></script>
+    <script src="js/ScriptTroli.js"></script>
+</body>
+
+</html>
