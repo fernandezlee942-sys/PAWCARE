@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PawCare - Login & Register</title>
-    <link rel="stylesheet" href="Account.css">
+    <link rel="stylesheet" href="Style/Account.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -52,39 +52,6 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loginBox = document.getElementById('login-box');
-            const registerBox = document.getElementById('register-box');
-            const goToRegister = document.getElementById('go-to-register');
-            const goToLogin = document.getElementById('go-to-login');
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-
-            goToRegister.addEventListener('click', (e) => {
-                e.preventDefault();
-                loginBox.classList.add('hidden');
-                registerBox.classList.remove('hidden');
-            });
-
-            goToLogin.addEventListener('click', (e) => {
-                e.preventDefault();
-                registerBox.classList.add('hidden');
-                loginBox.classList.remove('hidden');
-            });
-
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                window.location.href = 'Home.html';
-            });
-
-            registerForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                registerForm.reset();
-                registerBox.classList.add('hidden');
-                loginBox.classList.remove('hidden');
-            });
-        });
-    </script>
+    <script src="js/Account.js"></script>
 </body>
 </html>
