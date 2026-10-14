@@ -212,6 +212,75 @@
 
     <script src="js/DataProduk.js"></script>
     <script src="js/ScriptTroli.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Pakai toLowerCase() agar tidak sensitif huruf besar/kecil (CatLoading vs catloading)
+    const currentPath = window.location.pathname.toLowerCase();
+    const isLoadingPage = currentPath.includes("catloading.html");
+
+    console.log("[DEBUG] Path saat ini:", currentPath);
+    console.log("[DEBUG] Apakah Halaman Loading?:", isLoadingPage);
+
+    if (isLoadingPage) {
+        const nextPage = sessionStorage.getItem("nextPage");
+        console.log("[DEBUG] nextPage yang dibaca dari sessionStorage:", nextPage);
+
+        // Jika nextPage kosong/null
+        if (!nextPage) {
+            console.warn("[DEBUG] nextPage KOSONG! Menunggu 3 detik lalu balik ke halaman utama.");
+        }
+
+        setTimeout(() => {
+            console.log("[DEBUG] Timer 3 detik selesai!");
+            sessionStorage.removeItem("nextPage");
+
+            if (nextPage) {
+                console.log("[DEBUG] Berpindah ke:", nextPage);
+                window.location.replace(nextPage);
+            } else {
+                // Ganti dengan URL halaman utama Anda jika null
+                console.log("[DEBUG] Berpindah ke fallback / atau index.html");
+                window.location.replace("/"); 
+            }
+        }, 2000);
+
+        return;
+    }
+
+    // Penanganan Klik Link
+    document.querySelectorAll("a[href]").forEach(link => {
+        link.addEventListener("click", event => {
+            if (
+                event.defaultPrevented ||
+                event.button !== 0 ||
+                link.target === "_blank" ||
+                link.hasAttribute("download") ||
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.altKey ||
+                event.metaKey
+            ) return;
+
+            const destination = new URL(link.href, window.location.href);
+
+            if (
+                destination.origin !== window.location.origin ||
+                destination.pathname.toLowerCase().includes("catloading.html") ||
+                (destination.pathname === window.location.pathname && destination.hash)
+            ) return;
+
+            event.preventDefault();
+
+            console.log("[DEBUG] Menyimpan nextPage:", destination.href);
+            sessionStorage.setItem("nextPage", destination.href);
+
+            // Redirect ke halaman loading
+            window.location.href = new URL("CatLoading.html", window.location.href).href;
+        });
+    });
+});
+</script>
+
 </body>
 
 </html>
