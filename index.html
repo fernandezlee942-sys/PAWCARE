@@ -186,17 +186,21 @@
     .grid-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr); 
-        gap: 20px; 
+        grid-template-rows: repeat(2, auto); 
+        gap: 16px;
+        margin: 0 auto;
     }
 
-    .grid-item {
-        background: #2a2a2a;
-        color: #fff;
-        text-align: center;
+    .grid-container img {
+        width: 100%;
+        max-width: 10wh;
+        height: 200px;
         border-radius: 8px;
-        font-family: sans-serif;
     }
-
+    .grid-container *{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
     /* #endregion */
 
 
@@ -371,8 +375,27 @@
         margin: 15px 0;
     }
 
-
     /* #endregion */
+    
+    /* gallery grid */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: repeat(2, auto); 
+        gap: 10px;
+    }
+
+    .grid *{
+        padding: 5px;
+    }
+    .grid-item {
+        background-color: #e2e8f0;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+
 
     /* #region FAQ */
 
@@ -399,7 +422,7 @@
 <body class="bg-page text-ink font-body">
 
     <!-- #region BannerTop -->
-    <div id="Banner">
+    <header id="Banner">
         <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
         <h1 style="font-size: 3vw;">Pawcare</h1>
         
@@ -411,7 +434,7 @@
                 <img src="logo/akun.png" alt="Akun" id="AkunImg">
             </a>
         </div>
-    </div>
+    </header>
     <!-- #endregion -->
 
     <main class="ContentWrapper">
@@ -531,6 +554,19 @@
             <a href="Layanan.html">Lihat Opsi Barang/Jasa</a>
         </div>
 
+        <!-- gallery -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
+            <h1 class="font-display text-2xl sm:text-3xl font-bold mb-4">Gallery</h1>
+            <div class="grid-container">
+                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Gambar 1">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb" alt="Gambar 2">
+                <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97" alt="Gambar 3">
+                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1" alt="Gambar 4">
+                <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c" alt="Gambar 5">
+                <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e" alt="Gambar 6">
+            </div>
+        </section>
+
         <div id="FAQ" class="max-w-6xl mx-auto px-4 sm:px-5 pb-12 sm:pb-16">
             <h1>FAQ</h1>
             <hr>
@@ -546,6 +582,8 @@
 
         </div>
 
+
+
         <footer class="text-center py-8 px-4 text-sm text-muted border-t-[1.5px] border-line">
             © 2026 <span class="font-display font-semibold text-brand-strong">PawCare</span>
         </footer>
@@ -553,7 +591,7 @@
 
 
     <!-- #region BannerBottom -->
-    <div id="BannerBottom">
+    <nav id="BannerBottom">
         <a href="index.html">
             <img src="logo/logo2.png" alt="MainPg" id="MainPgImg">
         </a>
@@ -566,7 +604,7 @@
         <a href="#Contact">
             <img src="logo/contactperson.png" alt="Contact" id="ContactImg">
         </a>
-    </div>
+    </nav>
     <!-- #endregion -->
     
 
@@ -584,6 +622,7 @@
         menuBtn.addEventListener('click', () => setMenu(mobileNav.classList.contains('hidden')));
         mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
     </script>
+    <script src="js/Accordion.js"></script>
 </body>
 
 </html>
