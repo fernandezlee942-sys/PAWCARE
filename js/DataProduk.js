@@ -14,3 +14,9 @@ const CATALOG = [
     { id: 13, name: "Mangkuk Makan",      cats: ["Accessories"], price: 35000,  stock: 28, img: "produk/mangkuk-makan.jpg",      emoji: "🥣" },
     { id: 14, name: "Tas Travel",         cats: ["Accessories"], price: 160000, stock: 6,  img: "produk/tas-travel.jpg",         emoji: "🎒" },
 ];
+
+CATALOG.push(
+  { id: 101, name: "Obat Cacing Kucing", price: 45000, cats: ["Cat", "Obat"], stock: 20, img: "produk/obat-cacing.jpg", emoji: "💊" },
+  { id: 102, name: "Vitamin Bulu Anjing", price: 72000, cats: ["Dog", "Obat"], stock: 20, img: "produk/vitamin-bulu.jpg", emoji: "💊" },
+  { id: 103, name: "Obat Kutu Anjing", price: 95000, cats: ["Dog", "Obat"], stock: 20, img: "produk/obat-kutu.jpg", emoji: "💊" }
+);
