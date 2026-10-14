@@ -7,78 +7,118 @@
   <title>PawCare - Grooming & Booking</title>
   <link rel="icon" href="logo/logo3.png">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
-    <link rel="stylesheet" href="Style/HomeStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style/HomeStyle.css">
+
   <style type="text/tailwindcss">
     @theme {
-            --color-page: #FFF7F4; --color-ink: #4A2A2E; --color-muted: #7D5E61; --color-line: #F6DCD3;
-            --color-brand: #F6B3A0; --color-brand-strong: #BF4E38; --color-on-brand: #4A2A2E;
-            --color-tint-1: #FDE0D6;
-            --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif;
-        }
+      --color-page: #FFF7F4;
+      --color-ink: #4A2A2E;
+      --color-muted: #7D5E61;
+      --color-line: #F6DCD3;
+      --color-brand: #F6B3A0;
+      --color-brand-strong: #BF4E38;
+      --color-on-brand: #4A2A2E;
+      --color-tint-1: #FDE0D6;
+      --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+      --font-body: 'Nunito', system-ui, sans-serif;
+    }
   </style>
 
-    <!-- #region BannerTop -->
-      <header id="Banner">
-          <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
-          <h1 style="font-size: 3vw;">Pawcare</h1>
-          
-          <div class="TopRightDivBanner">
-              <a href="#Location">
-                  <img src="logo/lokasi.png" alt="Lokasi" id="LokasiImg">
-              </a>
-              <a href="Account.html">
-                  <img src="logo/akun.png" alt="Akun" id="AkunImg">
-              </a>
-          </div>
-      </header>
-    <!-- #endregion -->
+  <style>
+    .modal-detail {
+      width: min(90%, 480px);
+      max-height: 80vh;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #F6DCD3;
+      border-radius: 20px;
+      color: #4A2A2E;
+      background: #FFF7F4;
+    }
+
+    .modal-detail::backdrop {
+      background: rgb(0 0 0 / 50%);
+    }
+
+    .modal-detail-content {
+      position: relative;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .tutup-detail {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      border: none;
+      background: transparent;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .modal-detail li {
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #FDE0D6;
+    }
+
+    .modal-detail button {
+      cursor: pointer;
+    }
+  </style>
+</head>
 
 <body class="bg-page text-ink font-body ContentWrapper">
 
+  <header id="Banner">
+    <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
+    <h1 style="font-size: 3vw;">Pawcare</h1>
 
+    <div class="TopRightDivBanner">
+      <a href="#Location">
+        <img src="logo/lokasi.png" alt="Lokasi" id="LokasiImg">
+      </a>
+      <a href="Account.html">
+        <img src="logo/akun.png" alt="Akun" id="AkunImg">
+      </a>
+    </div>
+  </header>
 
   <main>
-
-    <!-- ===== JUDUL ===== -->
     <section class="bg-(--tint-1)">
       <div class="max-w-6xl mx-auto px-4 sm:px-5 py-10 sm:py-14 text-center md:text-left">
         <h1 class="font-display text-3xl sm:text-5xl font-bold">Grooming</h1>
-        <p class="mt-2 max-w-xl mx-auto md:mx-0 text-muted">Pilih paket perawatan yang sesuai untuk hewan
-          kesayanganmu. Dikerjakan groomer berpengalaman, di cabang terdekat.</p>
-        <p class="mt-3 text-sm font-semibold text-muted">Senin - Sabtu, 08:00 - 20:00 (libur nasional tutup)
+        <p class="mt-2 max-w-xl mx-auto md:mx-0 text-muted">
+          Pilih paket perawatan yang sesuai untuk hewan kesayanganmu.
+          Dikerjakan groomer berpengalaman, di cabang terdekat.
+        </p>
+        <p class="mt-3 text-sm font-semibold text-muted">
+          Senin - Sabtu, 08:00 - 20:00 (libur nasional tutup)
         </p>
       </div>
     </section>
 
-    <!-- ===== PAKET GROOMING ===== -->
     <section id="layanan" class="max-w-6xl mx-auto px-4 sm:px-5 pt-10 pb-12">
       <h2 class="font-display text-2xl sm:text-3xl font-bold">Pilih paket</h2>
       <p class="mt-1 text-muted">Harga sama untuk kucing dan anjing.</p>
-
       <div id="paket-grid" class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 items-stretch"></div>
     </section>
 
-    <!-- ===== FORM BOOKING ===== -->
     <section id="booking" class="max-w-6xl mx-auto px-4 sm:px-5 pb-16">
       <h2 class="font-display text-2xl sm:text-3xl font-bold">Booking grooming</h2>
       <p class="mt-1 text-muted">Isi data berikut, kami akan konfirmasi jadwalnya.</p>
 
       <form id="form-booking" class="card form-card mt-5 max-w-xl p-5 sm:p-6" novalidate>
-        
         <div class="field">
           <label for="pemilik" class="field-label mt-0">Nama pemilik</label>
-          <input type="text" id="pemilik" name="pemilik" autocomplete="name"
-            class="search-input w-full px-4 py-2.5 rounded-2xl select-text aria-invalid:border-(--brand-strong)!">
+          <input type="text" id="pemilik" name="pemilik" autocomplete="name" class="search-input w-full px-4 py-2.5 rounded-2xl select-text aria-invalid:border-(--brand-strong)!">
           <p class="pesan-error min-h-5 text-sm text-brand-strong"></p>
         </div>
 
         <div class="field">
           <label for="hewan" class="field-label mt-0">Jenis hewan</label>
-          <select id="hewan" name="hewan"
-            class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!">
+          <select id="hewan" name="hewan" class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!">
             <option value="">-- Pilih --</option>
             <option value="Kucing">Kucing</option>
             <option value="Anjing">Anjing</option>
@@ -88,148 +128,74 @@
 
         <div class="field">
           <label for="layanan-pilihan" class="field-label mt-0">Paket</label>
-          <select id="layanan-pilihan" name="layanan"
-            class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
+          <select id="layanan-pilihan" name="layanan" class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
           <p class="pesan-error min-h-5 text-sm text-brand-strong"></p>
         </div>
 
         <div class="field">
           <label for="cabang" class="field-label mt-0">Cabang</label>
-          <select id="cabang" name="cabang"
-            class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
+          <select id="cabang" name="cabang" class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
           <p class="pesan-error min-h-5 text-sm text-brand-strong"></p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-3">
           <div class="field">
             <label for="tanggal" class="field-label mt-0">Tanggal</label>
-            <input type="date" id="tanggal" name="tanggal"
-              class="search-input w-full px-4 py-2.5 rounded-2xl select-text aria-invalid:border-(--brand-strong)!">
+            <input type="date" id="tanggal" name="tanggal" class="search-input w-full px-4 py-2.5 rounded-2xl select-text aria-invalid:border-(--brand-strong)!">
             <p class="pesan-error min-h-5 text-sm text-brand-strong"></p>
           </div>
+
           <div class="field">
             <label for="jam" class="field-label mt-0">Jam</label>
-            <select id="jam" name="jam"
-              class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
+            <select id="jam" name="jam" class="search-input w-full px-4 py-2.5 rounded-2xl aria-invalid:border-(--brand-strong)!"></select>
             <p class="pesan-error min-h-5 text-sm text-brand-strong"></p>
           </div>
         </div>
 
         <div id="ringkasan" class="mt-2 rounded-2xl bg-(--tint-1) px-4 py-3 font-bold" aria-live="polite">
-          Total: pilih paket dulu</div>
+          Total: pilih paket dulu
+        </div>
 
-        <button type="submit"
-          class="mt-5 w-full px-6 py-3 rounded-full font-bold bg-brand text-on-brand cursor-pointer">Kirim
-          booking</button>
+        <button type="submit" class="mt-5 w-full px-6 py-3 rounded-full font-bold bg-brand text-on-brand cursor-pointer">
+          Kirim booking
+        </button>
       </form>
 
       <div id="sukses" class="sub-banner mt-4 max-w-xl" role="status" hidden></div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="text-center py-8 px-4 text-sm text-muted border-t-[1.5px] border-line">
+  <dialog id="modal-detail" class="modal-detail" aria-labelledby="detail-nama">
+    <div class="modal-detail-content">
+      <button type="button" id="tutup-detail" class="tutup-detail" aria-label="Tutup modal">&times;</button>
+      <h2 id="detail-nama" class="font-display text-2xl font-bold pr-8"></h2>
+      <p id="detail-harga" class="mt-2 font-bold"></p>
+      <h3 class="mt-5 font-bold">Fasilitas Paket</h3>
+      <ul id="detail-fasilitas" class="mt-3 space-y-2"></ul>
+      <button type="button" id="pilih-detail" class="mt-6 w-full rounded-full px-5 py-3 font-bold bg-brand text-on-brand">
+        Pilih Paket
+      </button>
+    </div>
+  </dialog>
 
+  <footer class="text-center py-8 px-4 text-sm text-muted border-t-[1.5px] border-line">
     © 2026 <span class="font-display font-semibold text-brand-strong">PawCare</span>
   </footer>
 
-  <!-- ===== NOTIFIKASI ===== -->
   <div id="toast" class="toast" role="status"></div>
 
-    <!-- #region BannerBottom -->
-    <nav id="BannerBottom">
-        <a href="Layanan.html">
-            <img src="logo/logo2.png" alt="MainPg" id="MainPgImg">
-        </a>
-        <a href="index.html#produk">
-            <img src="logo/Troli.png" alt="Troli" id="TroliImg">
-        </a>
-        <a href="index.html">
-            <img src="logo/home.png" alt="Home" id="HomeImg">
-        </a>
-        <a href="vet.html">
-            <img src="logo/layanan.png" alt="Home" id="LayananImg">
-        </a>
-        <a href="index.html#Contact">
-            <img src="logo/contactperson.png" alt="Contact" id="ContactImg">
-        </a>
-    </nav>
-
-    <!-- #endregion -->
-
+  <nav id="BannerBottom">
+    <a href="Layanan.html"><img src="logo/logo2.png" alt="MainPg" id="MainPgImg"></a>
+    <a href="index.html#produk"><img src="logo/Troli.png" alt="Troli" id="TroliImg"></a>
+    <a href="index.html"><img src="logo/home.png" alt="Home" id="HomeImg"></a>
+    <a href="vet.html"><img src="logo/layanan.png" alt="Layanan" id="LayananImg"></a>
+    <a href="index.html#Contact"><img src="logo/contactperson.png" alt="Contact" id="ContactImg"></a>
+  </nav>
 
   <script src="js/Shared.js"></script>
   <script src="js/LayananScript.js"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // Pakai toLowerCase() agar tidak sensitif huruf besar/kecil (CatLoading vs catloading)
-    const currentPath = window.location.pathname.toLowerCase();
-    const isLoadingPage = currentPath.includes("catloading.html");
-
-    console.log("[DEBUG] Path saat ini:", currentPath);
-    console.log("[DEBUG] Apakah Halaman Loading?:", isLoadingPage);
-
-    if (isLoadingPage) {
-        const nextPage = sessionStorage.getItem("nextPage");
-        console.log("[DEBUG] nextPage yang dibaca dari sessionStorage:", nextPage);
-
-        // Jika nextPage kosong/null
-        if (!nextPage) {
-            console.warn("[DEBUG] nextPage KOSONG! Menunggu 3 detik lalu balik ke halaman utama.");
-        }
-
-        setTimeout(() => {
-            console.log("[DEBUG] Timer 3 detik selesai!");
-            sessionStorage.removeItem("nextPage");
-
-            if (nextPage) {
-                console.log("[DEBUG] Berpindah ke:", nextPage);
-                window.location.replace(nextPage);
-            } else {
-                // Ganti dengan URL halaman utama Anda jika null
-                console.log("[DEBUG] Berpindah ke fallback / atau index.html");
-                window.location.replace("/"); 
-            }
-        }, 2000);
-
-        return;
-    }
-
-    // Penanganan Klik Link
-    document.querySelectorAll("a[href]").forEach(link => {
-        link.addEventListener("click", event => {
-            if (
-                event.defaultPrevented ||
-                event.button !== 0 ||
-                link.target === "_blank" ||
-                link.hasAttribute("download") ||
-                event.ctrlKey ||
-                event.shiftKey ||
-                event.altKey ||
-                event.metaKey
-            ) return;
-
-            const destination = new URL(link.href, window.location.href);
-
-            if (
-                destination.origin !== window.location.origin ||
-                destination.pathname.toLowerCase().includes("catloading.html") ||
-                (destination.pathname === window.location.pathname && destination.hash)
-            ) return;
-
-            event.preventDefault();
-
-            console.log("[DEBUG] Menyimpan nextPage:", destination.href);
-            sessionStorage.setItem("nextPage", destination.href);
-
-            // Redirect ke halaman loading
-            window.location.href = new URL("CatLoading.html", window.location.href).href;
-        });
-    });
-});
-</script>
+  <script src="js/LoadScreen.js"></script>
 
 </body>
-
 </html>

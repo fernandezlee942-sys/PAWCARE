@@ -36,23 +36,6 @@
     </div>
 
     <!-- TAMBAHKAN SCRIPT INI DI SINI -->
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const nextPage = sessionStorage.getItem("nextPage");
-        console.log("[Loading Page] nextPage ditemukan:", nextPage);
-
-        // Tunggu 3 detik, lalu pindah ke halaman tujuan
-        setTimeout(() => {
-            sessionStorage.removeItem("nextPage");
-
-            if (nextPage) {
-                window.location.replace(nextPage);
-            } else {
-                // Fallback jika tidak ada nextPage (misal diakses langsung)
-                window.location.replace("index.html"); 
-            }
-        }, 3000);
-    });
-    </script>
+    <script src="js/LoadScreen.js"></script>
 </body>
 </html>
