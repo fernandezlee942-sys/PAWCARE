@@ -169,22 +169,35 @@ background-color: var(--AboutUs-HrBgColor);
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: repeat(2, auto); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     margin: 0 auto;
 }
 
 .grid-container img {
     width: 100%;
-    max-width: 10vw;
     height: 200px;
+    object-fit: cover;
     border-radius: 8px;
 }
-.grid-container *{
-    margin-top: 0px;
-    margin-bottom: 0px;
+
+.grid-container * {
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
+    }
+
+    .grid-container img {
+        height: 200px;
+    }
+}
+
 /* #endregion */
 
 
@@ -378,8 +391,13 @@ font-size: var(--h1FontSizeGeneral);
     text-align: center;
     border-radius: 8px;
     font-weight: bold;
-}
 
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 
 /* #region FAQ */
 
