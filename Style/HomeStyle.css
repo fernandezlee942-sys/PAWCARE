@@ -296,6 +296,10 @@ height: var(--contact-height);
 width: var(--MainPgImg-width);
 height: var(--MainPgImg-height);
 }
+#BannerBottom img#TroliImg{
+    width: 8wh;
+    height: 8vh;
+}
 /* #endregion */
 
 

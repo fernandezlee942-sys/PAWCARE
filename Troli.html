@@ -8,26 +8,28 @@
     <link rel="icon" href="logo/logo3.png">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="Style/TroliStyle.css">
+    <link rel="stylesheet" href="Style/HomeStyle.css">
 </head>
 
-<body class="bg-page text-ink font-body">
 
-    <!-- Header -->
-    <header class="site-header sticky top-0 z-10 backdrop-blur border-b-[1.5px] border-line">
-        <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
-            <a href="Home.html" class="flex items-center gap-2" aria-label="PawCare beranda">
-                <img src="logo/logo3.png" alt="PawCare" class="h-14 w-auto">
-            </a>
-            <nav class="flex gap-5 sm:gap-6 font-semibold text-muted items-center">
-                <a href="Home.html" class="hidden sm:inline">Beranda</a>
-                <a href="Home.html#produk" class="hidden sm:inline">Produk</a>
-                <a href="troli.html" class="nav-active flex items-center gap-2">
-                    Troli
-                    <span id="navBadge" class="badge">0</span>
+
+<body class="bg-page text-ink font-body ContentWrapper">
+    <!-- #region BannerTop -->
+        <header id="Banner">
+            <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
+            <h1 style="font-size: 3vw;">Pawcare</h1>
+            
+            <div class="TopRightDivBanner">
+                <a href="#Location">
+                    <img src="logo/lokasi.png" alt="Lokasi" id="LokasiImg">
                 </a>
-            </nav>
-        </div>
-    </header>
+                <a href="Account.html">
+                    <img src="logo/akun.png" alt="Akun" id="AkunImg">
+                </a>
+            </div>
+        </header>
+    <!-- #endregion -->
+
 
     <main class="max-w-6xl mx-auto px-5 pt-8 pb-16">
         <h1 class="font-display text-3xl sm:text-4xl font-bold">Troli Belanja</h1>
@@ -62,7 +64,7 @@
                         <div class="empty-icon">🛒</div>
                         <p class="font-semibold">Troli Anda masih kosong</p>
                         <p class="text-muted text-sm mt-1">Yuk pilih produk favorit untuk si berbulu.</p>
-                        <a href="Home.html#produk" class="btn-primary inline-block mt-4">Mulai belanja</a>
+                        <a href="index.html#produk" class="btn-primary inline-block mt-4">Mulai belanja</a>
                     </div>
                 </div>
             </div>
@@ -187,6 +189,26 @@
     </dialog>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <!-- #region BannerBottom -->
+    <nav id="BannerBottom">
+        <a href="Layanan.html">
+            <img src="logo/logo2.png" alt="MainPg" id="MainPgImg">
+        </a>
+        <a href="index.html#produk">
+            <img src="logo/Troli.png" alt="Troli" id="TroliImg">
+        </a>
+        <a href="index.html">
+            <img src="logo/home.png" alt="Home" id="HomeImg">
+        </a>
+        <a href="vet.html">
+            <img src="logo/layanan.png" alt="Home" id="LayananImg">
+        </a>
+        <a href="index.html#Contact">
+            <img src="logo/contactperson.png" alt="Contact" id="ContactImg">
+        </a>
+    </nav>
+
+    <!-- #endregion -->
 
     <script src="js/DataProduk.js"></script>
     <script src="js/ScriptTroli.js"></script>

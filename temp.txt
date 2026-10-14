@@ -1,0 +1,36 @@
+    <!-- #region BannerBottom -->
+    <nav id="BannerBottom">
+        <a href="Layanan.html">
+            <img src="logo/logo2.png" alt="MainPg" id="MainPgImg">
+        </a>
+        <a href="index.html">
+            <img src="logo/home.png" alt="Home" id="HomeImg">
+        </a>
+        <a href="vet.html">
+            <img src="logo/layanan.png" alt="Home" id="LayananImg">
+        </a>
+        <a href="index.html#Contact">
+            <img src="logo/contactperson.png" alt="Contact" id="ContactImg">
+        </a>
+    </nav>
+    <!-- #endregion -->
+
+    <!-- #region BannerTop -->
+        <header id="Banner">
+            <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
+            <h1 style="font-size: 3vw;">Pawcare</h1>
+            
+            <div class="TopRightDivBanner">
+                <a href="#Location">
+                    <img src="logo/lokasi.png" alt="Lokasi" id="LokasiImg">
+                </a>
+                <a href="Account.html">
+                    <img src="logo/akun.png" alt="Akun" id="AkunImg">
+                </a>
+            </div>
+        </header>
+        <!-- #endregion -->
+
+    <!-- </header> -->
+
+    <main class="ContentWrapper">

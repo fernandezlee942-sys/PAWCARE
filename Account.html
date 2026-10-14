@@ -6,9 +6,28 @@
     <title>PawCare - Login & Register</title>
     <link rel="stylesheet" href="Style/Account.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Style/HomeStyle.css">
 </head>
 <body>
-    <div class="container">
+
+    <!-- #region BannerTop -->
+        <header id="Banner">
+            <img src="logo/logo1.png" alt="Logo1" id="Logo1Img">
+            <h1 style="font-size: 3vw;">Pawcare</h1>
+            
+            <div class="TopRightDivBanner">
+                <a href="#Location">
+                    <img src="logo/lokasi.png" alt="Lokasi" id="LokasiImg">
+                </a>
+                <a href="Account.html">
+                    <img src="logo/akun.png" alt="Akun" id="AkunImg">
+                </a>
+            </div>
+        </header>
+    <!-- #endregion -->
+
+
+    <div class="container ContentWrapper">
         <div class="form-box" id="login-box">
             <div class="header">
                 <h2><i class="fas fa-paw"></i> PawCare</h2>
@@ -65,6 +84,27 @@
             </form>
         </div>
     </div>
+    <!-- #region BannerBottom -->
+    <nav id="BannerBottom">
+        <a href="Layanan.html">
+            <img src="logo/logo2.png" alt="MainPg" id="MainPgImg">
+        </a>
+        <a href="index.html#produk">
+            <img src="logo/Troli.png" alt="Troli" id="TroliImg">
+        </a>
+        <a href="index.html">
+            <img src="logo/home.png" alt="Home" id="HomeImg">
+        </a>
+        <a href="vet.html">
+            <img src="logo/layanan.png" alt="Home" id="LayananImg">
+        </a>
+        <a href="index.html#Contact">
+            <img src="logo/contactperson.png" alt="Contact" id="ContactImg">
+        </a>
+    </nav>
+
+    <!-- #endregion -->
+
 
     <script src="js/Account.js"></script>
 </body>

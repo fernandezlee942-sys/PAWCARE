@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('userName', result.user.name);
                 localStorage.setItem('userRole', result.user.role);
 
-                // Pindah ke halaman Home.html
-                window.location.href = 'Home.html';
+                // Pindah ke halaman index.html
+                window.location.href = 'index.html';
             } else {
                 alert(result.message);
             }
