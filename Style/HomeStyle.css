@@ -1,3 +1,4 @@
+/* ===== DASAR ===== */
 * {
     user-select: none;
 }
@@ -41,6 +42,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* ===== HEADER DAN NAVIGASI ===== */
 .site-header {
     background: color-mix(in srgb, var(--bg) 88%, transparent);
 }
@@ -96,6 +98,15 @@ html {
     padding: .75rem .25rem;
 }
 
+.nav-cta {
+    background: var(--brand);
+    color: var(--on-brand);
+    padding: .45rem 1.1rem;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+}
+
+/* ===== HERO ===== */
 .hero-blob {
     background: var(--pink);
     border: 6px solid var(--pink);
@@ -103,6 +114,7 @@ html {
     box-shadow: 10px 10px 0 var(--brand);
 }
 
+/* ===== KARTU ===== */
 .card {
     background: var(--surface);
     border: var(--border-w) solid var(--line);
@@ -133,6 +145,7 @@ html {
     color: var(--brand-strong);
 }
 
+/* ===== FILTER DAN PENCARIAN ===== */
 .filters {
     overflow-x: auto;
     scrollbar-width: none;
@@ -173,15 +186,128 @@ html {
     color: var(--muted);
 }
 
+/* ===== TOMBOL ===== */
+.btn-ghost {
+    border: var(--border-w) solid var(--brand-strong);
+    color: var(--brand-strong);
+    background: transparent;
+}
+
+.btn-ghost:hover {
+    background: var(--tint-1);
+}
+
+.sub-btn {
+    margin-top: .75rem;
+    width: 100%;
+    min-height: 40px;
+    border-radius: var(--radius-pill);
+    border: var(--border-w) solid var(--brand-strong);
+    color: var(--brand-strong);
+    font-weight: 700;
+    background: transparent;
+    cursor: pointer;
+}
+
+.sub-btn:hover {
+    background: var(--tint-1);
+}
+
+/* ===== LAYANAN DAN BANNER ===== */
+.svc {
+    display: block;
+    background: var(--c);
+}
+
+.svc-ico {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: .75rem;
+    border-radius: 16px;
+    background: var(--surface);
+    font-size: 1.7rem;
+}
+
+.sub-banner {
+    padding: .7rem 1rem;
+    border-radius: 16px;
+    background: var(--tint-3);
+    font-size: .9rem;
+    color: var(--ink);
+}
+
+/* ===== DIALOG LANGGANAN ===== */
+.sub-dialog {
+    margin: auto;
+    width: min(92vw, 400px);
+    padding: 1.5rem;
+    border: var(--border-w) solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+    color: var(--ink);
+}
+
+.sub-dialog::backdrop {
+    background: rgba(74, 42, 46, .45);
+}
+
+/* ===== FORM ===== */
+.field-label {
+    display: block;
+    margin: 1rem 0 .35rem;
+    font-weight: 700;
+    font-size: .9rem;
+}
+
+.form-card>.field:first-child>.field-label {
+    margin-top: 0;
+}
+
+/* ===== ULASAN ===== */
+.review {
+    padding: 1.25rem;
+}
+
+.stars {
+    color: #E39A1F;
+    letter-spacing: 2px;
+}
+
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: #fff;
+    padding: .75rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    display: none;
+    z-index: 40;
+}
+
+/* ===== FOKUS ===== */
 .chip:focus-visible,
 .search-input:focus-visible,
 .menu-btn:focus-visible,
+.sub-btn:focus-visible,
+.nav-cta:focus-visible,
+.btn-ghost:focus-visible,
+.sub-dialog button:focus-visible,
+.sub-dialog input:focus-visible,
+.sub-dialog select:focus-visible,
 a:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 2px;
 }
 
+/* ===== RESPONSIF ===== */
 @media (min-width: 640px) {
+
     .menu-btn,
     .mobile-nav {
         display: none;
@@ -190,7 +316,7 @@ a:focus-visible {
     .desktop-nav {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.25rem;
         font-weight: 600;
         color: var(--muted);
     }

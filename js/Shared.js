@@ -15,6 +15,37 @@ window.PC = (() => {
     const load = (k, f) => { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch { return f; } };
     const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { } };
 
+    /* ===== JADWAL DAN CABANG ===== */
+    const JAM = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+
+    function tanggalLokal(d = new Date()) {
+        const z = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
+        return z.toISOString().split("T")[0];
+    }
+
+    const CABANG_AWAL = [
+        { id_branch: "b1", nama: "PawCare Medan Kota" },
+        { id_branch: "b2", nama: "PawCare Medan Selayang" }
+    ];
+
+    function branches() {
+        const db = load("pawcare_db", null);
+        return db && db.branches && db.branches.length ? db.branches : CABANG_AWAL;
+    }
+
+    /* ===== PESAN ERROR FORM ===== */
+    function showError(input, pesan) {
+        input.setAttribute("aria-invalid", "true");
+        const p = input.parentElement.querySelector(".pesan-error");
+        if (p) p.textContent = pesan;
+    }
+
+    function clearError(input) {
+        input.removeAttribute("aria-invalid");
+        const p = input.parentElement.querySelector(".pesan-error");
+        if (p) p.textContent = "";
+    }
+
     /* ===== KATALOG PRODUK ===== */
     const catalog = () => (typeof CATALOG !== "undefined" ? CATALOG : []);
     const prod = id => catalog().find(p => p.id === id);
@@ -99,5 +130,9 @@ window.PC = (() => {
     updateBadge();
     window.addEventListener("pageshow", updateBadge);
 
-    return { KEY, rp, esc, load, save, prod, catalog, stockOf, getCart, cartCount, updateBadge, addToCart, toggleWish, toast };
+    return {
+        KEY, rp, esc, load, save,
+        JAM, tanggalLokal, branches, showError, clearError,
+        prod, catalog, stockOf, getCart, cartCount, updateBadge, addToCart, toggleWish, toast
+    };
 })();

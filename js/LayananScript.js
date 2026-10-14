@@ -1,4 +1,4 @@
-const { rp, esc, load, save, toast } = PC;
+const { rp, esc, load, save, toast, JAM, tanggalLokal } = PC;
 const $ = s => document.querySelector(s);
 
 /* ===== DATA PAKET ===== */
@@ -20,12 +20,6 @@ const PAKET = {
   }
 };
 
-const CABANG_AWAL = [
-  { id_branch: "b1", nama: "PawCare Medan Kota" },
-  { id_branch: "b2", nama: "PawCare Medan Selayang" }
-];
-
-const JAM = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 const KEY_BOOKING = "pawcare_grooming";
 
 /* ===== ELEMEN ===== */
@@ -36,11 +30,6 @@ const selCabang = $("#cabang");
 const selJam = $("#jam");
 const ringkasan = $("#ringkasan");
 
-/* ===== TANGGAL LOKAL ===== */
-function tanggalLokal(d = new Date()) {
-  const z = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
-  return z.toISOString().split("T")[0];
-}
 const hariIni = tanggalLokal();
 $("#tanggal").min = hariIni;
 
@@ -84,10 +73,8 @@ function renderPilihan() {
   selPaket.innerHTML = `<option value="">-- Pilih --</option>` +
     Object.entries(PAKET).map(([k, p]) => `<option value="${k}">${esc(p.nama)} - ${rp(p.harga)}</option>`).join("");
 
-  const db = load("pawcare_db", null);
-  const cabang = (db && db.branches && db.branches.length) ? db.branches : CABANG_AWAL;
   selCabang.innerHTML = `<option value="">-- Pilih --</option>` +
-    cabang.map(b => `<option value="${esc(b.id_branch)}">${esc(b.nama)}</option>`).join("");
+    PC.branches().map(b => `<option value="${esc(b.id_branch)}">${esc(b.nama)}</option>`).join("");
 
   selJam.innerHTML = `<option value="">-- Pilih --</option>` +
     JAM.map(j => `<option value="${j}">${j}</option>`).join("");
@@ -114,7 +101,7 @@ $("#paket-grid").addEventListener("click", e => {
   const btn = e.target.closest("[data-pilih]");
   if (!btn) return;
   selPaket.value = btn.dataset.pilih;
-  bersihkanError(selPaket);
+  PC.clearError(selPaket);
   updateRingkasan();
   $("#booking").scrollIntoView({ behavior: "smooth" });
   setTimeout(() => $("#pemilik").focus({ preventScroll: true }), 450);
@@ -123,18 +110,8 @@ $("#paket-grid").addEventListener("click", e => {
 selPaket.addEventListener("change", updateRingkasan);
 
 /* ===== VALIDASI ===== */
-function tampilkanError(input, pesan) {
-  input.setAttribute("aria-invalid", "true");
-  input.parentElement.querySelector(".pesan-error").textContent = pesan;
-}
-
-function bersihkanError(input) {
-  input.removeAttribute("aria-invalid");
-  input.parentElement.querySelector(".pesan-error").textContent = "";
-}
-
 form.querySelectorAll("input, select").forEach(el => {
-  el.addEventListener("input", () => bersihkanError(el));
+  el.addEventListener("input", () => PC.clearError(el));
 });
 
 /* ===== KIRIM BOOKING ===== */
@@ -144,26 +121,20 @@ form.addEventListener("submit", e => {
   let valid = true;
 
   const { pemilik, hewan, layanan, cabang, tanggal, jam } = form;
-  [pemilik, hewan, layanan, cabang, tanggal, jam].forEach(bersihkanError);
+  [pemilik, hewan, layanan, cabang, tanggal, jam].forEach(PC.clearError);
 
-  if (pemilik.value.trim().length < 3) { tampilkanError(pemilik, "Nama pemilik minimal 3 karakter."); valid = false; }
-  if (!hewan.value) { tampilkanError(hewan, "Pilih jenis hewan."); valid = false; }
-  if (!layanan.value) { tampilkanError(layanan, "Pilih paket grooming."); valid = false; }
-  if (!cabang.value) { tampilkanError(cabang, "Pilih cabang."); valid = false; }
-  if (!tanggal.value) {
-    tampilkanError(tanggal, "Tanggal wajib diisi.");
-    valid = false;
-  } else if (tanggal.value < hariIni) {
-    tampilkanError(tanggal, "Tanggal tidak boleh sudah lewat.");
-    valid = false;
-  }
-  if (!jam.value) {
-    tampilkanError(jam, "Pilih jam.");
-    valid = false;
-  } else if (tanggal.value && new Date(`${tanggal.value}T${jam.value}`) < new Date()) {
-    tampilkanError(jam, "Jam ini sudah lewat.");
-    valid = false;
-  }
+  const salah = (el, pesan) => { PC.showError(el, pesan); valid = false; };
+
+  if (pemilik.value.trim().length < 3) salah(pemilik, "Nama pemilik minimal 3 karakter.");
+  if (!hewan.value) salah(hewan, "Pilih jenis hewan.");
+  if (!layanan.value) salah(layanan, "Pilih paket grooming.");
+  if (!cabang.value) salah(cabang, "Pilih cabang.");
+
+  if (!tanggal.value) salah(tanggal, "Tanggal wajib diisi.");
+  else if (tanggal.value < hariIni) salah(tanggal, "Tanggal tidak boleh sudah lewat.");
+
+  if (!jam.value) salah(jam, "Pilih jam.");
+  else if (tanggal.value && new Date(`${tanggal.value}T${jam.value}`) < new Date()) salah(jam, "Jam ini sudah lewat.");
 
   if (!valid) {
     const pertama = form.querySelector("[aria-invalid]");
@@ -201,7 +172,6 @@ form.addEventListener("submit", e => {
   updateRingkasan();
 });
 
-/* ===== MULAI ===== */
 renderPaket();
 renderPilihan();
 updateRingkasan();
