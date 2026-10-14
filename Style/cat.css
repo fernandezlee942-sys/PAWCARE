@@ -1,0 +1,166 @@
+html, body, * {
+cursor: url('../img/BearCursor.png'), auto;
+/* margin: 0; */
+}
+
+a, a img, button, input, select, textarea, [role="button"], summary {
+cursor: url(../img/BearCursorInteraction.png), auto;
+}
+
+
+body {
+    background-color: #e0f2fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cat-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+}
+
+.cat-tail {
+    position: absolute;
+    bottom: 60px;
+    left: 100px;
+    width: 22px;
+    height: 190px;
+    background: repeating-linear-gradient(
+        180deg,
+        #e67e22,
+        #e67e22 15px,
+        #d35400 15px,
+        #d35400 25px
+    );
+    border-radius: 15px 15px 5px 5px;
+    transform-origin: bottom center;
+    animation: wag 1.2s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.cat-body {
+    position: absolute;
+    bottom: 25px;
+    left: 55px;
+    width: 110px;
+    height: 95px;
+    background: repeating-linear-gradient(
+        180deg,
+        #e67e22,
+        #e67e22 12px,
+        #d35400 12px,
+        #d35400 20px
+    );
+    border-radius: 55px 55px 35px 35px;
+    z-index: 2;
+}
+
+.cat-head {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    width: 120px;
+    height: 90px;
+    background: repeating-linear-gradient(
+        0deg,
+        #ffb142,
+        #ffb142 12px,
+        #f39c12 12px,
+        #f39c12 18px
+    );
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.ear {
+    position: absolute;
+    top: -12px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 38px solid #ffb142; /* Samakan dengan warna kepala terang */
+}
+
+.ear.left {
+    left: 10px;
+    transform: rotate(-15deg);
+}
+
+.ear.right {
+    right: 10px;
+    transform: rotate(15deg);
+}
+
+.eye {
+    position: absolute;
+    top: 38px;
+    width: 12px;
+    height: 12px;
+    background-color: #2c3e50;
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+
+.eye.left { left: 32px; }
+.eye.right { right: 32px; }
+
+.nose {
+    position: absolute;
+    top: 52px;
+    left: 56px;
+    width: 8px;
+    height: 6px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+}
+
+.paws {
+    position: absolute;
+    bottom: 12px;
+    left: 68px;
+    display: flex;
+    gap: 42px;
+    z-index: 3;
+}
+
+.paw {
+    width: 22px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 8px;
+    left: 45px;
+    width: 130px;
+    height: 14px;
+    background-color: rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+@keyframes wag {
+    0% {
+        transform: rotate(-28deg);
+    }
+    100% {
+        transform: rotate(28deg);
+    }
+}
+
+@keyframes blink {
+    0%, 90%, 100% {
+        transform: scaleY(1);
+    }
+    95% {
+        transform: scaleY(0.1);
+    }
+}

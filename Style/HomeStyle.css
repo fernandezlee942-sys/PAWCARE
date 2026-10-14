@@ -78,6 +78,16 @@ font-size: var(--h1FontSizeGeneral);
 --color-banner-border-bottom : black;
 /* #endregion */
 
+@media (max-width: 768px) {
+--logo1-width : 20vw;
+--akun-width: 8vw;
+--lokasi-width: 8vw;
+--layanan-width: 9vw;
+--home-width: 9vw;
+--contact-width: 9vw;
+--MainPgImg-width: 9vw;    
+}
+
 /* #region ContentWrapper */
 --ContentWrapperElementsTopBottomMargin : 30px;
 --color-ContentWrapperBG: rgb(255, 255, 255);

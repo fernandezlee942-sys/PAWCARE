@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="Style/cat.css">
+    <link rel="icon" href="logo/logo3.png">
+</head>
+<body>
+    <h1>Loading Please Wait..</h1>
+    <div class="cat-container">
+        <!-- Bayangan -->
+        <div class="shadow"></div>
+        
+        <!-- Ekor di tengah -->
+        <div class="cat-tail"></div>
+        
+        <!-- Badan Pekat Bergaris -->
+        <div class="cat-body"></div>
+        
+        <!-- Kepala Terang Bergaris -->
+        <div class="cat-head">
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+        </div>
+        
+        <!-- Kaki -->
+        <div class="paws">
+            <div class="paw"></div>
+            <div class="paw"></div>
+        </div>
+    </div>
+
+    <!-- TAMBAHKAN SCRIPT INI DI SINI -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nextPage = sessionStorage.getItem("nextPage");
+        console.log("[Loading Page] nextPage ditemukan:", nextPage);
+
+        // Tunggu 3 detik, lalu pindah ke halaman tujuan
+        setTimeout(() => {
+            sessionStorage.removeItem("nextPage");
+
+            if (nextPage) {
+                window.location.replace(nextPage);
+            } else {
+                // Fallback jika tidak ada nextPage (misal diakses langsung)
+                window.location.replace("index.html"); 
+            }
+        }, 3000);
+    });
+    </script>
+</body>
+</html>
