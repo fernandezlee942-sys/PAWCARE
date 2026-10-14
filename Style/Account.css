@@ -1,5 +1,14 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+html, body, * {
+    cursor: url('../img/BearCursor.png'), auto;
+/* margin: 0; */
+}
+
+a, a img, button, input, select, textarea, [role="button"], summary {
+    cursor: url(../img/BearCursorInteraction.png), auto;
+}
 * {
     margin: 0;
     padding: 0;
