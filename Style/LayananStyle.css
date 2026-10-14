@@ -1,3 +1,11 @@
+html, body, * {
+    cursor: url('../img/BearCursor.png'), auto;
+/* margin: 0; */
+}
+
+a, a img, button, input, select, textarea, [role="button"], summary {
+    cursor: url(../img/BearCursorInteraction.png), auto;
+}
 :root {
   --bg: #fff9f2;          
   --kartu: #ffffff;

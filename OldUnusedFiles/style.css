@@ -123,12 +123,12 @@ h1{
 
 /* #region cursor */
 html, body, * {
-  cursor: url('img/BearCursor.png'), auto;
+  cursor: url('../img/BearCursor.png'), auto;
   margin: 0;
 }
 
 a, a img, button, input, select, textarea, [role="button"] {
-  cursor: url(img/BearCursorInteraction.png), auto;
+  cursor: url(../img/BearCursorInteraction.png), auto;
 }
 /* #endregion */
 
