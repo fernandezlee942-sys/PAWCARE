@@ -40,8 +40,8 @@ font-size: var(--h1FontSizeGeneral);
 /* #region GeneralBannerVar */
 
 /* unused now but lets just keep in just in case of future development */
---offset-BannerTopText: 0px;
---offset-BannerBottomText: 0px;
+--offset-BannerTopText: 10px;
+--offset-BannerBottomText: 10px;
 
 --banner-height: 8vh;
 --banner-paddingVertical:20px;
@@ -129,7 +129,7 @@ cursor: url('../img/BearCursor.png'), auto;
 /* margin: 0; */
 }
 
-a, a img, button, input, select, textarea, [role="button"], summary {
+a, a img, button, input, select, textarea, [role="button"], summary{
 cursor: url(../img/BearCursorInteraction.png), auto;
 }
 /* #endregion */
@@ -710,7 +710,11 @@ html {
 .toast {
     position: fixed;
     left: 50%;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(
+        var(--banner-height) +
+        (var(--banner-paddingVertical) * 2) +
+        var(--offset-BannerBottomText)
+    );
     transform: translateX(-50%);
     background: var(--ink);
     color: #fff;
@@ -775,4 +779,13 @@ a:focus-visible {
 #BannerBottom{
     bottom: 0;
     left: 0;
+}
+
+
+.chip,
+.chip:hover,
+.chip:focus,
+.chip:focus-visible,
+.chip:active {
+    cursor: url("../img/BearCursorInteraction.png"), pointer !important;
 }
