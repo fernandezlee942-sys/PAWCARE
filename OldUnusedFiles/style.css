@@ -43,7 +43,7 @@ h1{
 
   /* just for the id based navigation --> if you dont give it a bit of offset it kinda got blocked by the banner */
   [id] {
-    scroll-margin-top: calc(var(--banner-height) + (var(--banner-paddingVertical) * 2) + 20px);
+    scroll-margin-top: calc(var(--banner-height) + (var(--banner-paddingVertical) * 2) + 10px);
   }
 
   --offset-BannerTopText: 20px;

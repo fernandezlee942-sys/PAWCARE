@@ -12,6 +12,10 @@ h1{
 font-size: var(--h1FontSizeGeneral);
 }
 
+[id] {
+    scroll-margin-top: calc(var(--banner-height) + (var(--banner-paddingVertical) * 2));
+}
+
 
 /* #endregion */
 
